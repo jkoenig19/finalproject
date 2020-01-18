@@ -1,0 +1,18 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+  .bg {
+    background-image: url("../images/sprnkles.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: round;
+    background-size: cover;
+  }
+
+  .jumbotron{
+      background-color:#FFFF !important;
+    }
+  
