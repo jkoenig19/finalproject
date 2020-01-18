@@ -8,10 +8,12 @@ import Orders from "./pages/Orders";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 
+
+
 function App() {
   return (
     <Router>
-      <div>
+      <div className="container">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/bakery" component={Bakery} />
