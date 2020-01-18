@@ -15,4 +15,37 @@ body, html {
   .jumbotron{
       background-color:#FFFF !important;
     }
-  
+  body{
+    background-image: url("../images/sprnkles.jpg");
+  }
+
+    .order {
+
+      border: solid;
+      border-color:palevioletred;
+      padding: 20px;
+      background: whitesmoke;
+      opacity: .7;
+      border-radius: 25px;
+      width: 500px;
+      margin: auto;
+      margin-top: 20px;
+
+    
+  }
+
+  .navbar.navbar-expand-lg.navbar-dark.bg-primary{
+opacity: .7;
+
+
+  }
+
+  .top{
+    background-color: purple;
+  }
+
+  .submitOrder{
+    margin: auto;
+    background-color: purple;
+  }
+ 
