@@ -8,10 +8,11 @@ import './style.css';
 
 
 class Home extends Component {
+  
   state = { modalshown: false }
-  handleClose = () => { }
-  showmodal = () => { this.setState({ modalshown: true }) }
-
+  
+  showmodal = () => { this.setState({ modalshown: true });};
+  hidemodal = () => {this.setState({ modalshown: false });};
 
   render() {
     return (
@@ -20,18 +21,17 @@ class Home extends Component {
           <div className="row">
             <div className="col-md-12">
               <Jumbotron>
-                <h1>Welcome to Bakery Link!</h1>
-                <h3>making your cake orders a piece of cake!</h3>
               </Jumbotron>
             </div>
             <div className="form-group row">
               <div className="button col-md-4">
                 <Button className="btn-block" variant="primary" size="lg" onClick={this.showmodal}>Sign Up</Button>
-                <Modal show={this.state.modalshown} onHide={this.handleClose}>
+                <Modal show={this.state.modalshown} onHide={this.hidemodal}>
                   <Modal.Header closeButton>
-                    <Modal.Title>Sign Up</Modal.Title>
+                    <Modal.Title>Create Account</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>Thank you for choosing Bakery Link!
+                               Please create an account.
                   <Form>
                       <Form.Group controlId="formUsername">
                         <Form.Label>Username</Form.Label>
@@ -52,10 +52,10 @@ class Home extends Component {
                   </Form>
                   </Modal.Body>
                     <Modal.Footer>
-                      <Button variant="secondary" onClick={this.handleClose}>
+                      <Button variant="secondary" onClick={this.hidemodal}>
                         Close
                       </Button>
-                      <Button variant="primary" onClick={this.handleClose}>
+                      <Button variant="primary" onClick={this.hidemodal}>
                         Save Changes
                       </Button>
                     </Modal.Footer>

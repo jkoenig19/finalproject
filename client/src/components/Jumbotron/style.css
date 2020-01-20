@@ -1,4 +1,24 @@
 
 .jumbotron{
     background-color:#FFFF !important;
+    height: 300; 
+    padding-top: 120; 
+    text-align: center; 
+    border-radius: 0
+    }
+
+h1{
+    font-family: 'Pacifico', cursive;
+    color:  #9933ff;
+    text-shadow: 2px 2px 5px #FF73B9;
+} 
+h3{
+    font-family: 'Pacifico', cursive;
+    color:  #9933ff
+}   
+.logo{
+        max-width: 15%;
+        height: auto;
+        float: center;
+        padding: 25px;
 }
