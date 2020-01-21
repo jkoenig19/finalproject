@@ -6,11 +6,11 @@ const Error = () =>
 <Jumbotron fluid>
   
   <h1>404 Page Not Found</h1>
-    <h1>
-        <span role="img" aria-label="Green Salad Emoji">
+    <p>
+        <span role="img" aria-label="Green Salad Emoji" className="salad">
             🥗
         </span>
-    </h1>
+    </p>
  
 </Jumbotron>
     
