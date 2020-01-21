@@ -1,11 +1,5 @@
-
-body, html {
-    height: 100%;
-    margin: 0;
-}
-
-  .bg {
-    background-image: url("../images/sprnkles.jpg");
+body{
+     background-image: url("../images/sprnkles.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: round;
@@ -15,9 +9,7 @@ body, html {
   .jumbotron{
       background-color:#FFFF !important;
     }
-  body{
-    background-image: url("../images/sprnkles.jpg");
-  }
+
 
     .order {
 
@@ -48,4 +40,5 @@ opacity: .7;
     margin: auto;
     background-color: purple;
   }
- 
+  
+
