@@ -20,11 +20,13 @@ class Home extends Component {
       <div className="bg">
         <div className="container-fluid">
           <div className="row">
-          <div className="button col-md-4">
-            <Button className="btn-block" variant="primary" size="lg">Customer</Button>
+          <div className="col-md-4">
           </div>
           <div className="button col-md-4">
-            <Button className="btn-block" variant="primary" size="lg">Bakery</Button>
+            <Button className="btn-block" variant="primary" size="lg">Customer Log-In</Button>
+          </div>
+          <div className="button col-md-4">
+            <Button className="btn-block" variant="primary" size="lg">Bakery Log-In</Button>
           </div>
           </div>
         </div>
@@ -33,8 +35,47 @@ class Home extends Component {
           </Jumbotron>
         </div>
         <div className="form-group row">
+          <div className="col-md-4"></div>
+            <div className="button col-md-4">
+            <Button className="btn-block" variant="primary" size="lg" onClick={this.showmodal}>Are You a New Customer?</Button>
+            <Modal show={this.state.modalshown} onHide={this.hidemodal}>
+              <Modal.Header closeButton>
+                <Modal.Title>Create Account</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>Thank you for choosing Bakery Link!
+                           Please create an account.
+                  <Form>
+                  <Form.Group controlId="formUsername">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="username" placeholder="Patty Cake" />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="butterandsugar@email.com" />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="password" />
+                  </Form.Group>
+                  <Button variant="primary" type="submit">
+                    Submit
+                        </Button>
+
+                </Form>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={this.hidemodal}>
+                  Close
+                      </Button>
+                <Button variant="primary" onClick={this.hidemodal}>
+                  Save Changes
+                      </Button>
+              </Modal.Footer>
+            </Modal>
+
+          </div>
           <div className="button col-md-4">
-            <Button className="btn-block" variant="primary" size="lg" onClick={this.showmodal}>Sign Up</Button>
+            <Button className="btn-block" variant="primary" size="lg" onClick={this.showmodal}>Are You a New Bakery?</Button>
             <Modal show={this.state.modalshown} onHide={this.hidemodal}>
               <Modal.Header closeButton>
                 <Modal.Title>Create Account</Modal.Title>
