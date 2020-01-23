@@ -1,9 +1,10 @@
 body{
-     background-image: url("../images/sprnkles.jpg");
+     background-image: url("../images/AdobeStock_261774082.jpeg");
     height: 100vh;
-    background-position: center;
-    background-repeat: round;
+    background-position: center bottom;
+    background-repeat: no-repeat;
     background-size: cover;
+  
   }
 
   .jumbotron{
@@ -33,7 +34,7 @@ opacity: .7;
   }
 
   .top{
-    background-color: purple;
+    background-color: white;
   }
 
   .submitOrder{
