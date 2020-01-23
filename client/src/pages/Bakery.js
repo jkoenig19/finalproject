@@ -6,6 +6,7 @@ import './style.css';
 
 var Bakery = () => {
     return (
+        
         <div className="bg">
             <div className="container">
             
