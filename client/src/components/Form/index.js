@@ -1,7 +1,5 @@
 import React from "react";
 
-// This file exports the Input, TextArea, and FormBtn components
-
 export function Input(props) {
   return (
     <div className="form-group">
@@ -17,22 +15,6 @@ export function TextArea(props) {
     </div>
   );
 }
-export function SelectBox(props) {
-  return (
-    <div className="form-group">
-      <selectBox className="form-control"  {...props} />
-    </div>
-  );
-}
-
-export function Option(props) {
-  return (
-    <div className="form-group">
-      <Option className="form-control"  {...props} />
-    </div>
-  );
-}
-
 
 export function FormBtn(props) {
   return (
