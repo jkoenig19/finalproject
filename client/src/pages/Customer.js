@@ -1,6 +1,7 @@
  import React , { Component } from "react";
  import './style.css';
  import { Input, TextArea, FormBtn } from "../components/Form";
+ import API from "../utils/API";
  
  
 
@@ -15,9 +16,29 @@
       valueFlavor: "",
       valueSize: "",
       valueOutside: "",
-      valueInside: ""
+      valueInside: "",
+      map: "",
+      mapMessage: "Your Saved Location"
     };
 
+    componentDidMount() {
+      const currentUser = sessionStorage.getItem("username");
+      API.getCustomers()
+      .then(res => {
+          const customerInfo = res.data.filter(data => data.username === currentUser);
+          const currentCustomerLocation = customerInfo[0].location;
+          this.loadMap(currentCustomerLocation);
+          const currentCustomerID = customerInfo[0]._id;
+          this.loadPreviousOrders(currentCustomerID);
+      })
+      .catch(err => console.log(err));
+    }
+
+    loadMap = (currentCustomerLocation) => {
+        const keyTest = process.env.REACT_APP_mapquest_key;
+        this.setState({ map: "https://www.mapquestapi.com/staticmap/v5/map?locations=" + currentCustomerLocation + "&size=300,200&zoom=15&key=" + keyTest + "&scalebar=true|bottom"});
+    }
+  
     handleInputChange = event => {
       const { name, value } = event.target;
       this.setState({
@@ -128,6 +149,10 @@
                 Submit Order
               </FormBtn>
               </form>
+              <div>
+                <img alt="map" src={this.state.map} />
+                <p>{this.state.mapMessage}</p>
+              </div>
             </div>
         )
     }
