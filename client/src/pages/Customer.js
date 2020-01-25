@@ -27,6 +27,7 @@
 
     handleFormSubmit = event => {
       event.preventDefault();
+      console.log(this.state.valueFlavor)
     }
 
     render() {
@@ -47,6 +48,7 @@
               />
               <p>Cake Flavor</p>
               <select className="form-control" name="valueFlavor" onChange ={this.handleInputChange} value={this.state.valueFlavor}>
+                  <option>- Select flavor -</option>
                   <option value ="vanilla">Vanilla</option>
                   <option value ="chocolate">Chocolate</option>
                   <option value ="carrot">Carrot</option>
@@ -54,6 +56,7 @@
               </select>
               <p>Cake Size</p>
               <select className="form-control" name="valueSize" onChange ={this.handleInputChange} value={this.state.valueSize}>
+                  <option>- Select size -</option>
                   <option value ="6inch">6 inch</option>
                   <option value ="9inch">9 inch</option>
                   <option value ="12inch">12 inch</option>
@@ -61,8 +64,9 @@
                   <option value ="fourthsheet">1/4 Sheet</option>
                   <option value ="halfsheet">1/2 Sheet</option>
               </select>
-              <p>Butter Cream Outside</p>
+              <p>Buttercream Outside</p>
               <select className="form-control" name="valueOutside" onChange ={this.handleInputChange} value={this.state.valueOutside}>
+                  <option>- Select buttercream outside -</option>
                   <option value ="vanilla">Vanilla</option>
                   <option value ="almond">Almond</option>
                   <option value ="blackberry">Blackberry</option>
@@ -77,8 +81,9 @@
                   <option value ="creamCheese">Cream Cheese</option>
                   <option value ="ganache">Ganache</option>
               </select>
-              <p>Butter Cream Inside</p>
+              <p>Buttercream Inside</p>
               <select className="form-control" name="valueInside" onChange ={this.handleInputChange} value={this.state.valueInside}>
+                  <option>- Select buttercream inside -</option>
                   <option value ="vanilla">Vanilla</option>
                   <option value ="almond">Almond</option>
                   <option value ="blackberry">Blackberry</option>
@@ -97,7 +102,7 @@
                 value={this.state.writingOnCake}
                 onChange={this.handleInputChange}
                 name="writingOnCake"
-                placeholder=""
+                placeholder="writing on cake"
               />
                 <TextArea
                 value={this.state.decorations}

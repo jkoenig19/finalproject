@@ -8,7 +8,9 @@ const inventorySchema = new Schema({
   unitPrice: { type: Number },
   bakeryID: { type: String },
   cookies: { type: String },
-  cupcakes: { type: String }
+  cookies_quantity: { type: Number },
+  cupcakes: { type: String },
+  cupcakes_quantity: { type: Number }
 });
 
 const Inventory = mongoose.model("Inventory", inventorySchema);
