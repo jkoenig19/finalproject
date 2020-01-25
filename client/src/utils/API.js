@@ -40,6 +40,9 @@ export default {
   saveInventory: function(inventoryData) {
     return axios.post("/api/inventories", inventoryData);
   },
+  updateInventory: function(id, inventoryData) {
+    return axios.put("/api/inventories/" + id, inventoryData);
+  },
 //Orders
   getOrders: function() {
     return axios.get("/api/orders");
@@ -52,5 +55,8 @@ export default {
   },
   saveOrder: function(orderData) {
     return axios.post("/api/orders", orderData);
+  },
+  updateOrder: function(id, orderData) {
+    return axios.put("/api/orders/" + id, orderData);
   }
 };
