@@ -1,6 +1,6 @@
 
 .jumbotron{
-    background-color:#FFFF !important;
+
     height: 300; 
     padding-top: 120; 
     text-align: center; 
@@ -9,8 +9,12 @@
 
 h1{
     font-family: 'Pacifico', cursive;
-    color:  #9933ff;
-    text-shadow: 2px 2px 5px #FF73B9;
+    color:  white;
+    text-shadow: 2px 2px 5px  #0d1852;
+    text-align:center;
+    font-size:72px;
+    margin: auto;
+    padding-top: 20px;
 } 
 h3{
     font-family: 'Pacifico', cursive;
@@ -22,3 +26,15 @@ h3{
         float: center;
         padding: 25px;
 }
+
+
+h2{
+    font-family: 'Pacifico', cursive;
+    color:  white;
+    text-shadow: 2px 2px 5px  #0d1852;
+    text-align:center;
+    font-size:42px;
+    margin: auto;
+    padding-top: 20px;
+    position: fixed bottom;
+} 
