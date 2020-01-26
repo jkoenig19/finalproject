@@ -1,44 +1,67 @@
 body{
-     background-image: url("../images/AdobeStock_261774082.jpeg");
-    height: 100vh;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
+  
+ background-image: url("../images/marble-surface-2341290.jpg");
+ background-repeat: no-repeat;
+ background-size: auto;
   
   }
 
-  .jumbotron{
-      background-color:#FFFF !important;
+.jumbotron{
+background-image: url("../images/donuts-and-bagel-display-205961.jpg");
+width: 800px;
+height:400px;
+background-size: cover;
+margin: auto;
+margin-top: 30px;
+  
     }
-
-
-    .order {
-
-      border: solid;
-      border-color:palevioletred;
-      padding: 20px;
-      background: whitesmoke;
-      opacity: .7;
-      border-radius: 25px;
-      width: 500px;
-      margin: auto;
-      margin-top: 20px;
-
-    
-  }
-
-  .navbar.navbar-expand-lg.navbar-dark.bg-primary{
-opacity: .7;
-
-
-  }
-
-  .top{
-    background-color: white;
-  }
 
   .submitOrder{
     margin: auto;
     background-color: purple;
   }
  
+  .top{
+    background-color: #0d1852;
+    color: white;
+  }
+  .order{
+    border-color:  #0d1852;
+    border: double 6px;
+    padding: 20px;
+    width: 600px;
+    height: 900px;
+   
+    border-radius: 25px;
+    background-color: #0d1852;
+    color: white;
+   
+  }
+ 
+.material-icons{
+  color:white;
+}
+
+a{
+  color:white;
+   font-family: 'Righteous', cursive;
+  text-align: right;
+}
+
+i{
+  margin-right: 3px;
+}
+
+TextArea{
+  height:50px;
+}
+.submit{
+  background-color: white;
+
+}
+
+.pics{
+
+margin: auto;
+
+}

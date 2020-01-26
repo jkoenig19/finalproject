@@ -2,6 +2,7 @@
  import './style.css';
  import { Input, TextArea, FormBtn } from "../components/Form";
  import API from "../utils/API";
+ import Footer from "../components/Footer";
  
  
 
@@ -53,7 +54,50 @@
 
     render() {
         return (
-            <div className= "container-fluid">
+            <div>
+            
+<div className="top">
+      <nav class="navbar navbar-expand-lg">
+      <i className="material-icons">cake</i> <a class="navbar-brand" href="#">Bakery Link</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Bakery Log In</a>
+    </div>
+  </div>
+</nav>
+</div>
+<div className="pics">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div className="carousel-inner">
+    <div class="carousel-item active">
+        <img src="../images/photo2.jpg"  alt="photo1"></img>
+    </div>
+    <div class="carousel-item">
+      <img src="../images/photo1.jpg" class="d-block w-100" alt="..."></img>
+    </div>
+    <div class="carousel-item">
+      <img src="../images/photo3.jpg" class="d-block w-100" alt="..."></img>
+    </div>
+    <div class="carousel-item">
+      <img src="../images/photo4.jpg" class="d-block w-100" alt="..."></img>
+    </div>
+    <div class="carousel-item">
+      <img src="../images/photo5.jpg" class="d-block w-100" alt="..."></img>
+    </div>
+  
+  </div>
+</div>
+</div>
+
+<br>
+</br>
+<div className="order">
+  <h1>Customer Order</h1>
+  <br></br>
               <form>
               <Input
                 value={this.state.customerName}
@@ -119,18 +163,21 @@
                   <option value ="creamCheese">Cream Cheese</option>
                   <option value ="ganache">Ganache</option>
               </select>
+              <br></br>
               <TextArea
                 value={this.state.writingOnCake}
                 onChange={this.handleInputChange}
                 name="writingOnCake"
                 placeholder="writing on cake"
               />
-                <TextArea
+              <div className="decoration">
+                <TextArea 
                 value={this.state.decorations}
                 onChange={this.handleInputChange}
                 name="decorations"
                 placeholder="decoration"
               />
+              </div>
                 <Input
                 value={this.state.cookieQuantity}
                 onChange={this.handleInputChange}
@@ -143,16 +190,20 @@
                 name="cupcakeQuantity"
                 placeholder="How many cupcakes would you like"
               />
+              <div className="submit">
               <FormBtn
                 onClick={this.handleFormSubmit}
               >
                 Submit Order
               </FormBtn>
+              </div>
               </form>
+              </div>
               <div>
                 <img alt="map" src={this.state.map} />
                 <p>{this.state.mapMessage}</p>
               </div>
+              < Footer />
             </div>
         )
     }

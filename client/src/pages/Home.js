@@ -8,6 +8,7 @@ import './style.css';
 
 
 
+
 class Home extends Component {
 
   state = { modalshown: false }
@@ -18,102 +19,26 @@ class Home extends Component {
   render() {
     return (
       <div className="bg">
-        <div className="container-fluid">
-          <div className="row">
-          <div className="col-md-4">
+<div className="top">
+        <nav className="navbar navbar-expand-lg ">
+        <i className="material-icons">cake</i> <br></br><a class="navbar-brand" href="#">Bakery Link</a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav">
+              <a className="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
+              <a className="nav-item nav-link active" href="#">Bakery Log In</a>
+            </div>
           </div>
-          <div className="button col-md-4">
-            <Button className="btn-block" variant="primary" size="lg">Customer Log-In</Button>
-          </div>
-          <div className="button col-md-4">
-            <Button className="btn-block" variant="primary" size="lg">Bakery Log-In</Button>
-          </div>
-          </div>
-        </div>
-        <div className="col-md-12">
-          <Jumbotron>
-          </Jumbotron>
-        </div>
-        <div className="form-group row">
-          <div className="col-md-4"></div>
-            <div className="button col-md-4">
-            <Button className="btn-block" variant="primary" size="lg" onClick={this.showmodal}>Are You a New Customer?</Button>
-            <Modal show={this.state.modalshown} onHide={this.hidemodal}>
-              <Modal.Header closeButton>
-                <Modal.Title>Create Account</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>Thank you for choosing Bakery Link!
-                           Please create an account.
-                  <Form>
-                  <Form.Group controlId="formUsername">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="username" placeholder="Patty Cake" />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="butterandsugar@email.com" />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="password" />
-                  </Form.Group>
-                  <Button variant="primary" type="submit">
-                    Submit
-                        </Button>
+        </nav>
+</div>
 
-                </Form>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={this.hidemodal}>
-                  Close
-                      </Button>
-                <Button variant="primary" onClick={this.hidemodal}>
-                  Save Changes
-                      </Button>
-              </Modal.Footer>
-            </Modal>
 
-          </div>
-          <div className="button col-md-4">
-            <Button className="btn-block" variant="primary" size="lg" onClick={this.showmodal}>Are You a New Bakery?</Button>
-            <Modal show={this.state.modalshown} onHide={this.hidemodal}>
-              <Modal.Header closeButton>
-                <Modal.Title>Create Account</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>Thank you for choosing Bakery Link!
-                           Please create an account.
-                  <Form>
-                  <Form.Group controlId="formUsername">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="username" placeholder="Patty Cake" />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="butterandsugar@email.com" />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="password" />
-                  </Form.Group>
-                  <Button variant="primary" type="submit">
-                    Submit
-                        </Button>
+        <Jumbotron>
+        </Jumbotron>
 
-                </Form>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={this.hidemodal}>
-                  Close
-                      </Button>
-                <Button variant="primary" onClick={this.hidemodal}>
-                  Save Changes
-                      </Button>
-              </Modal.Footer>
-            </Modal>
-
-          </div>
-        </div>
-        < Footer />
+        <Footer></Footer>
       </div>
 
 
