@@ -245,7 +245,6 @@ class Inventory extends Component {
                 this.setState({cupcakes_update: ""})
                 selection = this.state.flavor + " " + this.state.size;
                 this.setState({selectionUpdate: selection})
-                this.setState({size: "", flavor: ""})
                 inventorySearch = true;
             }
         })
@@ -258,7 +257,6 @@ class Inventory extends Component {
             this.setState({cookies_update: "yes"})
             this.setState({cupcakes_update: ""})
             this.setState({selectionUpdate: this.state.other})
-            this.setState({other: ""})
             inventorySearch = true;
         }
         if (this.state.other === "cupcakes"){
@@ -270,7 +268,6 @@ class Inventory extends Component {
             this.setState({cookies_update: ""})
             this.setState({cupcakes_update: "yes"})
             this.setState({selectionUpdate: this.state.other})
-            this.setState({other: ""})
             inventorySearch = true;   
         }
         if (!inventorySearch){
@@ -288,6 +285,7 @@ class Inventory extends Component {
             .then(res => this.loadPlots())
             .catch(err => console.log(err));
             this.setState({inventoryMessage: "Item quantity updated!"});
+            this.setState({size: "", flavor: ""});
             this.setState({quantity: "", selectionUpdate: "No item selected", selectedQuantity: "No item selected", selectedPrice: "No item selected"});
         }
         if (this.state.cookies_update === "yes"){
@@ -297,6 +295,7 @@ class Inventory extends Component {
             .then(res => this.loadPlots())
             .catch(err => console.log(err));
             this.setState({inventoryMessage: "Item quantity updated!"});
+            this.setState({other: ""});
             this.setState({quantity: "", selectionUpdate: "No item selected", selectedQuantity: "No item selected", selectedPrice: "No item selected"});
         }
         if (this.state.cupcakes_update === "yes"){
@@ -306,6 +305,7 @@ class Inventory extends Component {
             .then(res => this.loadPlots())
             .catch(err => console.log(err));
             this.setState({inventoryMessage: "Item quantity updated!"});
+            this.setState({other: ""});
             this.setState({quantity: "", selectionUpdate: "No item selected", selectedQuantity: "No item selected", selectedPrice: "No item selected"});
         }
     }
@@ -319,6 +319,7 @@ class Inventory extends Component {
         .then(res => this.loadPlots())
         .catch(err => console.log(err));
         this.setState({inventoryMessage: "Item price updated!"});
+        this.setState({size: "", flavor: "", other: ""});
         this.setState({unitPrice: ""});
     }
 
@@ -359,6 +360,7 @@ class Inventory extends Component {
                 .then(res => this.loadPlots())
                 .catch(err => console.log(err));
                 this.setState({flavorNew: "", sizeNew: "", quantityCake: "", unitPriceCake: ""});
+                this.setState({inventoryMessage: "Item added to inventory database for the first time!"});   
             }
             else if (this.state.otherNew && this.state.quantityOther && this.state.unitPriceOther){
                 if (this.state.otherNew === "cookies"){
@@ -371,6 +373,7 @@ class Inventory extends Component {
                     .then(res => this.loadPlots())
                     .catch(err => console.log(err));
                     this.setState({unitPriceOther: "", quantityOther: ""});
+                    this.setState({inventoryMessage: "Item added to inventory database for the first time!"});   
                 }
                 if (this.state.otherNew === "cupcakes"){
                     API.saveInventory({
@@ -382,6 +385,7 @@ class Inventory extends Component {
                     .then(res => this.loadPlots())
                     .catch(err => console.log(err));
                     this.setState({unitPriceOther: "", quantityOther: ""});
+                    this.setState({inventoryMessage: "Item added to inventory database for the first time!"});   
                 }
             }
             else {
@@ -497,7 +501,7 @@ class Inventory extends Component {
             </FormBtn>
         </form>
         <div>
-            <p>Current Selection: {this.state.selectionUpdate}</p>
+            <p>Current Selection Information</p>
             <p>Current Quantity: {this.state.selectedQuantity}</p>
             <p>Current Unit Price ($): {this.state.selectedPrice}</p>
         </div>

@@ -69,7 +69,7 @@ class Orders extends Component {
                 status.push(bakery.status);
             })
             date.forEach(date => {
-                convert = moment(date).format("MM/D/YY - dddd");
+                convert = moment(date).format("M/D/YY - dddd");
                 dueDate.push(convert);
             })
             const customerName = [];
@@ -83,7 +83,12 @@ class Orders extends Component {
                     }}]})
                 })
             })
+            bakeryOrders.forEach(order => {
+                convert = moment(order.dueDate).format("M/D/YY");
+                order.dueDate = convert;
+            })
             this.setState({currentBakeryOrders: bakeryOrders});
+            console.log(this.state.currentBakeryOrders)
         })
         .catch(err => console.log(err));
     };
@@ -183,17 +188,17 @@ class Orders extends Component {
             <List>
                 {this.state.currentBakeryOrders.map(order => (
                     <ListItem key={order._id}>
-                        <p>Date of Pickup: {order.dueDate}</p>
-                        <p>Order ID: {order.bakeryOrderID}</p>
-                        <p>Cake size: {order.size}</p>
-                        <p>Cake flavor: {order.flavor}</p>
-                        <p>Buttercream inside: {order.buttercreamInside}</p>
-                        <p>Buttercream outside: {order.buttercreamOutside}</p>
-                        <p>Writing: {order.writing}</p>
-                        <p>Decorations: {order.decorations}</p>
-                        <p>Order submitted by: {order.orderSubmittedBy}</p>
-                        <p>Cookies quantity: {order.cookies_quantity}</p>
-                        <p>Cupcakes quantity: {order.cupcakes_quantity}</p>
+                        <p>Date of Pickup: {order.dueDate ? order.dueDate : "N/A"}</p>
+                        <p>Order ID: {order.bakeryOrderID ? order.bakeryOrderID : "N/A"}</p>
+                        <p>Cake size: {order.size ? order.size : "N/A"}</p>
+                        <p>Cake flavor: {order.flavor ? order.flavor : "N/A"}</p>
+                        <p>Buttercream inside: {order.buttercreamInside ? order.buttercreamInside : "N/A"}</p>
+                        <p>Buttercream outside: {order.buttercreamOutside ? order.buttercreamOutside : "N/A"}</p>
+                        <p>Writing: {order.writing ? order.writing : "N/A"}</p>
+                        <p>Decorations: {order.decorations ? order.decorations : "N/A"}</p>
+                        <p>Order submitted by: {order.orderSubmittedBy ? order.orderSubmittedBy : "N/A"}</p>
+                        <p>Cookies quantity: {order.cookiesQuantity ? order.cookiesQuantity : "N/A"}</p>
+                        <p>Cupcakes quantity: {order.cupcakesQuantity ? order.cupcakesQuantity : "N/A"}</p>
                     </ListItem>
                 ))}
             </List>

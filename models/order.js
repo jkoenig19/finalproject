@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
   bakeryID: { type: String },
-  bakeryOrderID: { type: String },
+  bakeryOrderID: { type: Number },
   customerID: { type: String },
   orderDate: { type: Date, default: Date.now },
   dueDate: { type: String },
