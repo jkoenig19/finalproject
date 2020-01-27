@@ -11,7 +11,8 @@ class Signup extends Component {
         name: "",
         phone: "",
         email: "",
-        location: ""
+        location: "",
+        message: ""
     }
 
     handleInputChange = event => {
@@ -26,9 +27,19 @@ class Signup extends Component {
         API.getBakeries()
         .then(res => {
             const bakeryInfo = res.data.filter(data => data.username === this.state.username  && data.password === this.state.password);
-            const user_variable = bakeryInfo[0].username;
-            sessionStorage.clear();
-            sessionStorage.setItem("username", user_variable)
+            if (!bakeryInfo[0]){
+                this.setState({message: "No match, please try again!"})
+                this.setState({username: "", password: ""});
+            }
+            else {
+                const user_variable = bakeryInfo[0].username;
+                sessionStorage.clear();
+                sessionStorage.setItem("username", user_variable)
+                sessionStorage.setItem("registered", "bakery")
+                this.setState({username: "", password: ""});
+                this.setState({message: "Success!"})
+                window.location.replace("/bakery")
+            }
         })
     }
 
@@ -37,45 +48,85 @@ class Signup extends Component {
         API.getCustomers()
         .then(res => {
             const customerInfo = res.data.filter(data => data.username === this.state.username  && data.password === this.state.password);
-            const user_variable = customerInfo[0].username;
-            sessionStorage.clear();
-            sessionStorage.setItem("username", user_variable)
+            if (!customerInfo[0]){
+                this.setState({message: "No match, please try again!"})
+                this.setState({username: "", password: ""});
+            }
+            else {
+                const user_variable = customerInfo[0].username;
+                sessionStorage.clear();
+                sessionStorage.setItem("username", user_variable)
+                sessionStorage.setItem("registered", "customer")
+                this.setState({username: "", password: ""});
+                this.setState({message: "Success!"})
+                window.location.replace("/customer")
+            }
         })
     }
 
     handleBakeryNewSubmit = event => {
         event.preventDefault();
-        API.saveBakery({
-            username: this.state.username,
-            password: this.state.password,
-            name: this.state.name,
-            location: this.state.location
+        API.getBakeries()
+        .then(res => {
+            const allBakeries = res.data;
+            const usernameDuplicate = allBakeries.filter(bakery => bakery.username === this.state.username)
+            if (usernameDuplicate.length !== 0){
+                this.setState({message: "Username already taken, please try again!"})
+                this.setState({username: ""});
+            }
+            else {
+                API.saveBakery({
+                    username: this.state.username,
+                    password: this.state.password,
+                    name: this.state.name,
+                    location: this.state.location
+                })
+                .catch(err => console.log(err));
+                const user_variable = this.state.username;
+                sessionStorage.clear();
+                sessionStorage.setItem("username", user_variable)
+                sessionStorage.setItem("registered", "bakery")
+                this.setState({message: "Success!"})
+                window.location.replace("/bakery")
+            }
         })
         .catch(err => console.log(err));
-        const user_variable = this.state.username;
-        sessionStorage.clear();
-        sessionStorage.setItem("username", user_variable)
     }
 
     handleCustomerNewSubmit = event => {
         event.preventDefault();
-        API.saveCustomer({
-            username: this.state.username,
-            password: this.state.password,
-            name: this.state.name,
-            phone: this.state.phone,
-            email: this.state.email,
-            location: this.state.location
-        })
-        .catch(err => console.log(err));
-        const user_variable = this.state.username;
-        sessionStorage.clear();
-        sessionStorage.setItem("username", user_variable)
+        API.getCustomers()
+            .then(res => {
+                const allUsers = res.data;
+                const usernameDuplicate = allUsers.filter(user => user.username === this.state.username)
+                if (usernameDuplicate.length !== 0){
+                    this.setState({message: "Username already taken, please try again!"})
+                    this.setState({username: ""});
+                }
+                else {
+                    API.saveCustomer({
+                        username: this.state.username,
+                        password: this.state.password,
+                        name: this.state.name,
+                        phone: this.state.phone,
+                        email: this.state.email,
+                        location: this.state.location
+                    })
+                    .catch(err => console.log(err));
+                    const user_variable = this.state.username;
+                    sessionStorage.clear();
+                    sessionStorage.setItem("username", user_variable)
+                    sessionStorage.setItem("registered", "customer")
+                    this.setState({message: "Success!"})
+                    window.location.replace("/customer")
+                }
+            })
+            .catch(err => console.log(err));
     }
 
     render() {
         return (
-            <div className="container-fluid">  
+            <div>  
                                             <div className="top">
       <nav class="navbar navbar-expand-lg">
       <i className="material-icons">cake</i>  <a class="navbar-brand" href="#">Bakery Link</a>
@@ -90,6 +141,8 @@ class Signup extends Component {
   </div>
 </nav>
 </div> 
+        <div className="container-fluid">
+            <p>Message: {this.state.message ? this.state.message : "None"}</p>
             <form>
                 <p>Bakery sign in</p>
                 <Input
@@ -206,6 +259,7 @@ class Signup extends Component {
                     Submit
                 </FormBtn>
             </form>
+            </div>
             <Footer></Footer>
             </div>
         )

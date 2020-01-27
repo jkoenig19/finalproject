@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form'
 import Footer from "../components/Footer";
-import Button from 'react-bootstrap/Button';
 import './style.css';
 
 
@@ -36,6 +33,8 @@ class Home extends Component {
 
 
         <Jumbotron>
+          <h1 className="display-4">Bakery Link</h1>
+          <h2 className="lead">Making Bakery Orders A Piece Of Cake!</h2>
         </Jumbotron>
 
         <Footer></Footer>

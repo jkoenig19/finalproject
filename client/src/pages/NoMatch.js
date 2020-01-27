@@ -1,7 +1,7 @@
 import React from "react";
-import Error from "../components/Error";
 import './style.css';
 import Footer from "../components/Footer";
+import Jumbotron from "../components/Jumbotron";
 
 
 function NoMatch() {
@@ -24,7 +24,14 @@ function NoMatch() {
       </div>
 
 
-      <Error />
+      <Jumbotron>
+        <h1 className="display-4">404 Page Not Found</h1>
+        <p>
+            <span role="img" aria-label="Green Salad Emoji" className="salad">
+                🥗
+            </span>
+        </p>
+      </Jumbotron>
       <Footer></Footer>
     </div>
 

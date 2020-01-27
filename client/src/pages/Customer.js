@@ -159,7 +159,12 @@ class Customer extends Component {
    }
 
 
-   render() {      
+   render() {
+    const authorization = sessionStorage.getItem("registered");
+    if (authorization !== "customer"){
+      window.location.replace("/signup")
+    }
+    else {   
        return (
          <div>
         <div className="top">
@@ -177,30 +182,30 @@ class Customer extends Component {
   </nav>
   </div>
   <div className="pics">
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel">
     <div className="carousel-inner">
-      <div class="carousel-item active">
-          <img src="../images/photo2.jpg"  alt="photo1"></img>
+      <div className="carousel-item active">
+          <img src={require("../images/photo2.jpg")}  alt="photo1"/>
       </div>
-      <div class="carousel-item">
-        <img src="../images/photo1.jpg" class="d-block w-100" alt="..."></img>
+      <div className="carousel-item">
+        <img src={require("../images/photo1.jpg")} className="d-block w-100" alt="..."/>
       </div>
-      <div class="carousel-item">
-        <img src="../images/photo3.jpg" class="d-block w-100" alt="..."></img>
+      <div className="carousel-item">
+        <img src={require("../images/photo3.jpg")} className="d-block w-100" alt="..."/>
       </div>
-      <div class="carousel-item">
-        <img src="../images/photo4.jpg" class="d-block w-100" alt="..."></img>
+      <div className="carousel-item">
+        <img src={require("../images/photo4.jpg")} className="d-block w-100" alt="..."/>
       </div>
-      <div class="carousel-item">
-        <img src="../images/photo5.jpg" class="d-block w-100" alt="..."></img>
+      <div className="carousel-item">
+        <img src={require("../images/photo5.jpg")} className="d-block w-100" alt="..."/>
       </div>
     
     </div>
   </div>
   </div>
-           <div>
+           <div className="container-fluid">
              <p>Greetings {this.state.customer.name}!</p>
-             <p>Submit a bakery order and view any previous orders below. </p>
+             <p>Submit a bakery order and view any previous orders below.</p>
 
              <div className="order">
              <h1>Customer Order</h1>
@@ -278,25 +283,25 @@ class Customer extends Component {
                  value={this.state.writingOnCake}
                  onChange={this.handleInputChange}
                  name="writingOnCake"
-                 placeholder="writing on cake"
+                 placeholder="Writing on cake"
                />
                  <TextArea
                  value={this.state.decorations}
                  onChange={this.handleInputChange}
                  name="decorations"
-                 placeholder="decoration"
+                 placeholder="Decoration(s)"
                />
                  <Input
                  value={this.state.cookieQuantity}
                  onChange={this.handleInputChange}
                  name="cookieQuantity"
-                 placeholder="How many cookies would you like"
+                 placeholder="How many cookies would you like?"
                />
                  <Input
                  value={this.state.cupcakeQuantity}
                  onChange={this.handleInputChange}
                  name="cupcakeQuantity"
-                 placeholder="How many cupcakes would you like"
+                 placeholder="How many cupcakes would you like?"
                />
                <FormBtn
                  onClick={this.handleSubtotalSubmit}
@@ -314,7 +319,7 @@ class Customer extends Component {
                  <p>Buttercream Outside: {this.state.valueOutside ? this.state.valueOutside : "No selection"}</p>
                  <p>Buttercream Inside: {this.state.valueInside ? this.state.valueInside: "No selection"}</p>
                  <p>Writing On Cake: {this.state.writingOnCake ? this.state.writingOnCake : "No writing entered"}</p>
-                 <p>Decorations: {this.state.decorations ? this.state.decorations : "No decorations entered"}</p>
+                 <p>Decoration(s): {this.state.decorations ? this.state.decorations : "No decorations entered"}</p>
                  <p>Cookie Quantity: {this.state.cookieQuantity ? this.state.cookieQuantity : "No quantity entered"}</p>
                  <p>Cupcake Quantity: {this.state.cupcakeQuantity ? this.state.cupcakeQuantity : "No quantity entered"}</p>
                <FormBtn
@@ -337,7 +342,7 @@ class Customer extends Component {
                  New Order
                </FormBtn>
                </div>
-             )};
+             )}
              </div>
              <div>
                <img alt="map" src={this.state.map} />
@@ -363,9 +368,11 @@ class Customer extends Component {
                ))}
            </List>
            </div>
+           <Footer></Footer>
            </div>
        )
    }
+  }
  }
 
 

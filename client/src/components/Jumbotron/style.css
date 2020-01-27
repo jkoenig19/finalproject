@@ -1,9 +1,14 @@
 
 .jumbotron{
-
-    height: 300; 
+    background-image: url("../../images/donuts-and-bagel-display-205961.jpg");
+    background-size: cover;
+    width: 75%;
+    margin: auto;
+    margin-top: 30px;
+ 
+    /* height: 300; 
     padding-top: 120; 
-    text-align: center; 
+    text-align: center;  */
     border-radius: 0
     }
 
