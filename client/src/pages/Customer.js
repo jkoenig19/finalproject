@@ -4,6 +4,9 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 import Footer from "../components/Footer";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
 
 
 
@@ -181,28 +184,28 @@ class Customer extends Component {
     </div>
   </nav>
   </div>
-  <div className="pics">
-  <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel">
-    <div className="carousel-inner">
-      <div className="carousel-item active">
-          <img src={require("../images/photo2.jpg")}  alt="photo1"/>
-      </div>
-      <div className="carousel-item">
-        <img src={require("../images/photo1.jpg")} className="d-block w-100" alt="..."/>
-      </div>
-      <div className="carousel-item">
-        <img src={require("../images/photo3.jpg")} className="d-block w-100" alt="..."/>
-      </div>
-      <div className="carousel-item">
-        <img src={require("../images/photo4.jpg")} className="d-block w-100" alt="..."/>
-      </div>
-      <div className="carousel-item">
-        <img src={require("../images/photo5.jpg")} className="d-block w-100" alt="..."/>
-      </div>
+  <div class="carousel-wrapper">
+            <Carousel infiniteLoop autoPlay showThumbs="false">
+                <div>
+                    <img src={require("../images/photo1.jpg")} />
+                </div>
+                <div>
+                    <img src={require("../images/photo2.jpg")} />
+                </div>
+                <div>
+                    <img src={require("../images/photo3.jpg")} />
+                </div>
+                <div>
+                    <img src={require("../images/piece-of-cake-with-berries-on-top-1639564.jpg")} />
+                </div>
+                <div>
+                    <img src={require("../images/photo5.jpg")} />
+                </div>
+               
+            </Carousel>
+        </div>
     
-    </div>
-  </div>
-  </div>
+  
            <div className="container-fluid">
              <p>Greetings {this.state.customer.name}!</p>
              <p>Submit a bakery order and view any previous orders below.</p>
@@ -303,7 +306,7 @@ class Customer extends Component {
                  name="cupcakeQuantity"
                  placeholder="How many cupcakes would you like?"
                />
-               <FormBtn
+               <FormBtn className="button"
                  onClick={this.handleSubtotalSubmit}
                >
                  Enter Order Details
@@ -344,7 +347,7 @@ class Customer extends Component {
                </div>
              )}
              </div>
-             <div>
+             <div className="map">
                <img alt="map" src={this.state.map} />
                <p>{this.state.mapMessage}</p>
              </div>
