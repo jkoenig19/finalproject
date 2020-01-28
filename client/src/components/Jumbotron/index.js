@@ -1,18 +1,17 @@
 import React from "react";
-import Logo from "../../images/logo.png";
 import "./style.css";
 
+function Jumbotron({children}) {
+  return (
+    <div
+      style={{ height: 300, clear: "both", paddingTop: 100, textAlign: "center" }}
+      className="jumbotron"
+    >
+      {children}
+    </div>
+  )
+  }
 
-
-const Jumbotron = () => <div className="jumbotron">
-  <h1>Bakery Link</h1>
-  <br>
-  </br>
-  <h2>Making Bakery Oders A Piece Of Cake!</h2>
- 
- 
-
-  </div>
   
 
 

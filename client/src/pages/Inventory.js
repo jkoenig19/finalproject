@@ -395,9 +395,14 @@ class Inventory extends Component {
     }
 
     render() {
+        const authorization = sessionStorage.getItem("registered");
+        if (authorization !== "bakery"){
+            window.location.replace("/signup")
+        }
+        else {  
       return (
           
-        <div className="container-fluid">
+        <div>
                                 <div className="top">
       <nav class="navbar navbar-expand-lg">
       <i className="material-icons">cake</i>  <a class="navbar-brand" href="#">Bakery Link</a>
@@ -412,6 +417,7 @@ class Inventory extends Component {
   </div>
 </nav>
 </div>
+    <div className="container-fluid">
         <div style = {{width: "100%", height: "300px"}}>
             <Plot
             data={this.state.dataVanilla}
@@ -600,9 +606,11 @@ class Inventory extends Component {
             </FormBtn>
         </form>
         <p>Inventory Messages: {this.state.inventoryMessage}</p>
+        </div>
         <Footer></Footer>
         </div>
       );
+    }
     }
   }
 
