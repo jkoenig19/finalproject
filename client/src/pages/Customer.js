@@ -162,7 +162,7 @@ class Customer extends Component {
    render() {
     const authorization = sessionStorage.getItem("registered");
     if (authorization !== "customer"){
-      window.location.replace("/signup")
+      window.location.replace("/signup-customer")
     }
     else {   
        return (

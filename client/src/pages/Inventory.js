@@ -397,7 +397,7 @@ class Inventory extends Component {
     render() {
         const authorization = sessionStorage.getItem("registered");
         if (authorization !== "bakery"){
-            window.location.replace("/signup")
+            window.location.replace("/signup-bakery")
         }
         else {  
       return (
