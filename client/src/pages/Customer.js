@@ -184,7 +184,7 @@ class Customer extends Component {
     </div>
   </nav>
   </div>
-  <div class="carousel-wrapper">
+  <div className="carousel-wrapper">
             <Carousel infiniteLoop autoPlay showThumbs="false">
                 <div>
                     <img src={require("../images/photo1.jpg")} />
@@ -306,7 +306,7 @@ class Customer extends Component {
                  name="cupcakeQuantity"
                  placeholder="How many cupcakes would you like?"
                />
-               <FormBtn className="button"
+               <FormBtn className="orderButton"
                  onClick={this.handleSubtotalSubmit}
                >
                  Enter Order Details

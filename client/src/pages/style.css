@@ -32,10 +32,10 @@ margin-top: 30px;
     padding: 20px;
     width: 600px;
     height: 950px;
-   
     border-radius: 25px;
     background-color: #0d1852;
     color: white;
+    margin-left:30px;
    
   }
  
@@ -47,6 +47,7 @@ a{
   color:white;
    font-family: 'Righteous', cursive;
   text-align: right;
+   
 }
 
 i{
@@ -75,6 +76,8 @@ margin: auto;
 .carousel-wrapper{
   width: 40%;
   float:right;
+  padding-top: 110px;
+  margin-right:40px;
 }
 
 .map{
@@ -83,6 +86,7 @@ margin: auto;
   border-color: #0d1852;
   width:40%;
   float:right;
+  float: top;
 }
 
 p{
@@ -90,6 +94,82 @@ p{
   color: #0d1852;
   font-size:24px;
 }
-.button{
+
+
+.demoimage {
+  float: left ;
+ 
+  padding-right: 20px;
+}
+.demoText {
+ padding-top:15px;
+  padding-left: 10px;
+  font-size: 32px;
+}
+
+.bakeryImage {
+  float: right ;
+  padding-left: 20px;
+}
+
+.bakeryText {
+font-size: 32px;
+}
+
+
+.text{
+  width:65%;
+  margin: auto;
+  margin-bottom:50px;
+  margin-top:30px;
+  
+}
+
+hr{
+  border-top: 2px solid  #0d1852;
+}
+.btn.btn-primary{
+  background-image: url("../images/AdobeStock_261774082.jpeg");
+  border-color:#0d1852;
+  border-radius: 20%;
+  height:200px;
+  width:300px;
+  color:#0d1852;
+  border-width: 6px;
+  font-family: 'Righteous', cursive;
+  font-size: 24px;
+ 
+
+}
+
+.signUp{
+  padding-top: 30px;
+  align-content: center;
+  padding-bottom: 80px;
+}
+
+.orderButton{
   background-color: white;
+}
+
+.order2{
+  border-color:  #0d1852;
+  border: double 6px;
+  padding: 20px;
+  width: 1000px;
+  height: 1030px;
+  border-radius: 25px;
+  background-color: #0d1852;
+  color: white;
+  margin:auto;
+  margin-top:40px;
+
+}
+
+.signUp{
+ text-align: center;
+}
+
+.signUp:hover{
+color:blue
 }
