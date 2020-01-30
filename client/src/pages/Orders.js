@@ -6,6 +6,7 @@ import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 import './style.css';
 import Footer from "../components/Footer";
+import { Link } from 'react-router-dom';
 
 
 class Orders extends Component {
@@ -40,90 +41,95 @@ class Orders extends Component {
     componentDidMount() {
         const currentUser = sessionStorage.getItem("username");
         API.getBakeries()
-        .then(res => {
-            const bakeryInfo = res.data.filter(data => data.username === currentUser);
-            const currentBakeryID = bakeryInfo[0]._id;
-            this.loadTable(currentBakeryID);
-        })
-        .catch(err => console.log(err));
-      }
+            .then(res => {
+                const bakeryInfo = res.data.filter(data => data.username === currentUser);
+                const currentBakeryID = bakeryInfo[0]._id;
+                this.loadTable(currentBakeryID);
+            })
+            .catch(err => console.log(err));
+    }
 
     loadTable = (currentBakeryID) => {
         API.getOrders()
-        .then(res => {
-            const bakeryOrders = res.data.filter(data => data.bakeryID === currentBakeryID);
-            bakeryOrders.forEach(bakery => {
-                 bakery.dueDate=Date.parse(bakery.dueDate);
-            })
-            bakeryOrders.sort((a,b) => a.dueDate - b.dueDate);
-            const date = [];
-            let convert = "";
-            const dueDate = [];
-            const orderNumber = [];
-            const customer = [];
-            const status = [];
-            bakeryOrders.forEach(bakery => {
-                date.push(bakery.dueDate);
-                orderNumber.push(bakery.bakeryOrderID);
-                customer.push(bakery.customerID);
-                status.push(bakery.status);
-            })
-            date.forEach(date => {
-                convert = moment(date).format("M/D/YY - dddd");
-                dueDate.push(convert);
-            })
-            const customerName = [];
-            customer.forEach(customer => {
-                API.getCustomer(customer)
-                .then(res => {
-                    customerName.push(res.data.name);
-                    this.setState({ data: [{...this.state.data[0], 
-                        cells: {...this.state.data[0].cells,
-                            values: [dueDate, orderNumber, customerName, status]
-                    }}]})
+            .then(res => {
+                const bakeryOrders = res.data.filter(data => data.bakeryID === currentBakeryID);
+                bakeryOrders.forEach(bakery => {
+                    bakery.dueDate = Date.parse(bakery.dueDate);
                 })
+                bakeryOrders.sort((a, b) => a.dueDate - b.dueDate);
+                const date = [];
+                let convert = "";
+                const dueDate = [];
+                const orderNumber = [];
+                const customer = [];
+                const status = [];
+                bakeryOrders.forEach(bakery => {
+                    date.push(bakery.dueDate);
+                    orderNumber.push(bakery.bakeryOrderID);
+                    customer.push(bakery.customerID);
+                    status.push(bakery.status);
+                })
+                date.forEach(date => {
+                    convert = moment(date).format("M/D/YY - dddd");
+                    dueDate.push(convert);
+                })
+                const customerName = [];
+                customer.forEach(customer => {
+                    API.getCustomer(customer)
+                        .then(res => {
+                            customerName.push(res.data.name);
+                            this.setState({
+                                data: [{
+                                    ...this.state.data[0],
+                                    cells: {
+                                        ...this.state.data[0].cells,
+                                        values: [dueDate, orderNumber, customerName, status]
+                                    }
+                                }]
+                            })
+                        })
+                })
+                bakeryOrders.forEach(order => {
+                    convert = moment(order.dueDate).format("M/D/YY");
+                    order.dueDate = convert;
+                })
+                this.setState({ currentBakeryOrders: bakeryOrders });
+                console.log(this.state.currentBakeryOrders)
             })
-            bakeryOrders.forEach(order => {
-                convert = moment(order.dueDate).format("M/D/YY");
-                order.dueDate = convert;
-            })
-            this.setState({currentBakeryOrders: bakeryOrders});
-            console.log(this.state.currentBakeryOrders)
-        })
-        .catch(err => console.log(err));
+            .catch(err => console.log(err));
     };
 
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-          [name]: value
+            [name]: value
         });
-      };
+    };
 
     handleStatusSubmit = event => {
         event.preventDefault();
         this.state.currentBakeryOrders.forEach(order => {
-            if (order.bakeryOrderID === this.state.bakeryOrderNumber){
-                API.updateOrder(order._id, 
+            if (order.bakeryOrderID === this.state.bakeryOrderNumber) {
+                API.updateOrder(order._id,
                     { status: this.state.status }
                 )
-                .then(res => this.loadTable(order.bakeryID))
-                .catch(err => console.log(err));
+                    .then(res => this.loadTable(order.bakeryID))
+                    .catch(err => console.log(err));
             }
-            this.setState({bakeryOrderNumber: ""});
-            this.setState({status: ""});
+            this.setState({ bakeryOrderNumber: "" });
+            this.setState({ status: "" });
         })
     }
 
     handleDeleteSubmit = event => {
         event.preventDefault();
         this.state.currentBakeryOrders.forEach(order => {
-            if (order.bakeryOrderID === this.state.deleteOrderNumber){
+            if (order.bakeryOrderID === this.state.deleteOrderNumber) {
                 API.deleteOrder(order._id)
-                .then(res => this.loadTable(order.bakeryID))
-                .catch(err => console.log(err))
+                    .then(res => this.loadTable(order.bakeryID))
+                    .catch(err => console.log(err))
             }
-            this.setState({deleteOrderNumber: ""});
+            this.setState({ deleteOrderNumber: "" });
         })
     }
 
@@ -135,28 +141,27 @@ class Orders extends Component {
 
     render() {
         const authorization = sessionStorage.getItem("registered");
-        if (authorization !== "bakery"){
-          window.location.replace("/signup-bakery")
+        if (authorization !== "bakery") {
+            window.location.replace("/signup-bakery")
         }
         else {  
         return (
             <div> 
-                                <div className="top">
-      <nav class="navbar navbar-expand-lg">
-      <i className="material-icons">cake</i>  <a class="navbar-brand" href="#">Bakery Link</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Bakery Log In</a>
-      <a class="nav-item nav-link" onClick={this.handleLogOut}>Log Out</a>
-    </div>
-  </div>
-</nav>
-</div>         
-            <div className="container-fluid">
+                   <div className="top">
+                        <nav class="navbar navbar-expand-lg">
+                            <i className="material-icons">cake</i>  <a class="navbar-brand"><Link to="/">Bakery Link</Link></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                                <div class="navbar-nav">
+                                    <a className="nav-item nav-link active"><Link to="/login-customer">Customer Log In <span class="sr-only">(current)</span></Link></a>
+                                    <a className="nav-item nav-link active"><Link to="/login-bakery">Bakery Log In</Link></a>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+             <div className="container-fluid">
                 <div className="ordersTable" style = {{width: "100%", height: "300px", marginTop: "30px"}}>
                     <Plot 
                     data={this.state.data}
@@ -175,12 +180,17 @@ class Orders extends Component {
                         name="bakeryOrderNumber"
                         placeholder="Order number"
                     />
-                    <Input
+                        <select className="form-control"
                         value={this.state.status}
                         onChange={this.handleInputChange}
                         name="status"
-                        placeholder="Status"
-                    />
+                        >
+                        <option value="" disabled selected>- Select Status -</option>
+                        <option value="submitted">Submitted</option>
+                        <option value="seenbystaff">Seen By Staff</option>
+                        <option value="inprogress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
                     <FormBtn
                         onClick={this.handleStatusSubmit}
                     >
@@ -230,8 +240,8 @@ class Orders extends Component {
             <Footer></Footer>
             </div>
             );
-          }
         }
-        }
-      
+    }
+}
+
 export default Orders;

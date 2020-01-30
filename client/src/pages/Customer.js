@@ -4,6 +4,7 @@ import { Input, TextArea, FormBtn, GoBackBtn } from "../components/Form";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 import Footer from "../components/Footer";
+import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
@@ -14,6 +15,7 @@ class Customer extends Component {
    state = {
      customer: [],
      selectedBakery: "",
+
      dateOfPickup: "",
      writingOnCake: "",
      decorations: "",
@@ -178,19 +180,18 @@ class Customer extends Component {
          <div>
         <div className="top">
         <nav class="navbar navbar-expand-lg">
-        <i className="material-icons">cake</i> <a class="navbar-brand" href="#">Bakery Link</a>
+        <i className="material-icons">cake</i> <a class="navbar-brand"><Link to="/">Bakery Link</Link></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="/login-bakery">Bakery Log In</a>
-        <a class="nav-item nav-link" onClick={this.handleLogOut}>Log Out</a>
+        <a class="nav-item nav-link active"><Link to="/login-customer">Customer Log In <span class="sr-only">(current)</span></Link></a>
+        <a class="nav-item nav-link"><Link to="/login-bakery">Bakery Log In</Link></a>
       </div>
     </div>
   </nav>
-  </div>  
+  </div>
            <div className="container-fluid">
              <div className="row">
                <div className="col-md-12 registeredTop">

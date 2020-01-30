@@ -3,6 +3,7 @@ import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
 import './style.css';
 import Footer from "../components/Footer";
+import { Link } from 'react-router-dom';
 
 class SignupCustomer extends Component {
     state = {
@@ -18,9 +19,9 @@ class SignupCustomer extends Component {
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-          [name]: value
+            [name]: value
         });
-      };
+    };
 
     handleCustomerNewSubmit = event => {
         event.preventDefault();
@@ -59,7 +60,7 @@ class SignupCustomer extends Component {
                         email: this.state.email,
                         location: this.state.location
                     })
-                    .catch(err => console.log(err));
+                        .catch(err => console.log(err));
                     const user_variable = this.state.username;
                     sessionStorage.clear();
                     sessionStorage.setItem("username", user_variable)
@@ -74,20 +75,20 @@ class SignupCustomer extends Component {
     render() {
         return (
             <div>  
-                                            <div className="top">
-      <nav class="navbar navbar-expand-lg">
-      <i className="material-icons">cake</i>  <a class="navbar-brand" href="#">Bakery Link</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Bakery Log In</a>
-    </div>
-  </div>
-</nav>
-</div> 
+                <div className="top">
+                    <nav class="navbar navbar-expand-lg">
+                        <i className="material-icons">cake</i>  <a class="navbar-brand"><Link to="/">Bakery Link</Link></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a className="nav-item nav-link active"><Link to="/login-customer">Customer Log In <span class="sr-only">(current)</span></Link></a>
+                                <a className="nav-item nav-link active"><Link to="/login-bakery">Bakery Log In</Link></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
         <div className="container-fluid">
         <form className="customerSignup">
             <p class="signUpP">Message: {this.state.message ? this.state.message : "None"}</p>

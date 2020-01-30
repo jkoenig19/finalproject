@@ -28,6 +28,4 @@ We used the following resources:
 
 ### Authors
 
-James Koenig
-Annemarie Hin
-Alissa Yamazaki
+©2020 James Koenig, Annemarie Hin, Alissa Yamazaki

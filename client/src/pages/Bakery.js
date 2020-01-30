@@ -1,7 +1,8 @@
 import React , { Component } from "react";
 import Footer from "../components/Footer";
 import './style.css';
-import { Input, TextArea, FormBtn, GoBackBtn } from "../components/Form";
+import { Input, TextArea, FormBtn } from "../components/Form";
+import { Link } from 'react-router-dom';
 import API from "../utils/API";
 
 
@@ -151,21 +152,20 @@ class Bakery extends Component {
       return (
         
         <div className="bg">
-                    <div className="top">
-      <nav class="navbar navbar-expand-lg">
-      <i className="material-icons">cake</i>  <a class="navbar-brand" href="#">Bakery Link</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Bakery Log In</a>
-      <a class="nav-item nav-link" onClick={this.handleLogOut}>Log Out</a>
-    </div>
-  </div>
-</nav>
-</div>
+          <div className="top">
+            <nav class="navbar navbar-expand-lg">
+              <i className="material-icons">cake</i> <a class="navbar-brand"><Link to="/">Bakery Link</Link></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-item nav-link active"><Link to="/login-customer">Customer Log In <span class="sr-only">(current)</span></Link></a>
+                  <a class="nav-item nav-link"><Link to="/login-bakery">Bakery Log In</Link></a>
+                </div>
+              </div>
+            </nav>
+          </div>
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-12 registeredTop">

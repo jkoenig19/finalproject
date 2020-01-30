@@ -3,6 +3,7 @@ import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
 import './style.css';
 import Footer from "../components/Footer";
+import { Link } from 'react-router-dom';
 
 class SignupBakery extends Component {
     state = {
@@ -18,56 +19,56 @@ class SignupBakery extends Component {
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-          [name]: value
+            [name]: value
         });
-      };
+    };
 
     handleBakeryNewSubmit = event => {
         event.preventDefault();
         API.getBakeries()
-        .then(res => {
-            const allBakeries = res.data;
-            const usernameDuplicate = allBakeries.filter(bakery => bakery.username === this.state.username)
-            if (usernameDuplicate.length !== 0){
-                this.setState({message: "Username already taken, please try again!"})
-                this.setState({username: ""});
-            }
-            else {
-                API.saveBakery({
-                    username: this.state.username,
-                    password: this.state.password,
-                    name: this.state.name,
-                    location: this.state.location
-                })
-                .catch(err => console.log(err));
-                const user_variable = this.state.username;
-                sessionStorage.clear();
-                sessionStorage.setItem("username", user_variable)
-                sessionStorage.setItem("registered", "bakery")
-                this.setState({message: "Success!"})
-                window.location.replace("/bakery")
-            }
-        })
-        .catch(err => console.log(err));
+            .then(res => {
+                const allBakeries = res.data;
+                const usernameDuplicate = allBakeries.filter(bakery => bakery.username === this.state.username)
+                if (usernameDuplicate.length !== 0) {
+                    this.setState({ message: "Username already taken, please try again!" })
+                    this.setState({ username: "" });
+                }
+                else {
+                    API.saveBakery({
+                        username: this.state.username,
+                        password: this.state.password,
+                        name: this.state.name,
+                        location: this.state.location
+                    })
+                        .catch(err => console.log(err));
+                    const user_variable = this.state.username;
+                    sessionStorage.clear();
+                    sessionStorage.setItem("username", user_variable)
+                    sessionStorage.setItem("registered", "bakery")
+                    this.setState({ message: "Success!" })
+                    window.location.replace("/bakery")
+                }
+            })
+            .catch(err => console.log(err));
     }
 
     render() {
         return (
             <div>  
-                                            <div className="top">
-      <nav class="navbar navbar-expand-lg">
-      <i className="material-icons">cake</i>  <a class="navbar-brand" href="#">Bakery Link</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Bakery Log In</a>
-    </div>
-  </div>
-</nav>
-</div> 
+                <div className="top">
+                    <nav class="navbar navbar-expand-lg">
+                        <i className="material-icons">cake</i>  <a class="navbar-brand"><Link to="/">Bakery Link</Link></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a className="nav-item nav-link active"><Link to="/login-customer">Customer Log In <span class="sr-only">(current)</span></Link></a>
+                                <a className="nav-item nav-link active"><Link to="/login-bakery">Bakery Log In</Link></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
         <div className="container-fluid">
         <div className="signup1">
             <p class="signUpP">Message: {this.state.message ? this.state.message : "None"}</p>

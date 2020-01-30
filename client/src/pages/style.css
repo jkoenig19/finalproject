@@ -1,308 +1,345 @@
-body{
-  
-    background-image: url("../images/marble-surface-2341290.jpg");
-    background-size: 100%;
-    margin-bottom: 150px;
-   
-     }
-   
-   /* .jumbotron{
-   background-image: url("../images/donuts-and-bagel-display-205961.jpg");
-   width: 800px;
-   height:400px;
-   background-size: cover;
-   margin: auto;
-   margin-top: 30px;
-     
-       } */
-   
-     .submitOrder{
+    /* Inventory Page */
+    .inventoryupdate{
+      border-color:  #0d1852;
+      border: double 6px;
+      padding: 20px;
+      width: 75%;
+      height: 320px;
+      border-radius: 25px;
+      background-color: #0d1852;
+      color: white;
+      margin-left: 10%;
+    }
+    
+    .quantityprice {
+      border-color:  #0d1852;
+      border: double 6px;
+      padding: 20px;
+      width: 75%;
+      height: 400px;
+      border-radius: 25px;
+      background-color: #0d1852;
+      color: white;
+      margin-left: 10%;
+    }
+    
+    .addnew{
+      border-color:  #0d1852;
+      border: double 6px;
+      padding: 20px;
+      width: 75%;
+      height: 600px;
+      border-radius: 25px;
+      background-color: #0d1852;
+      color: white;
+      margin-left: 10%;
+    }
+
+    body{
+        background-image: url("../images/marble-surface-2341290.jpg");
+        background-size: 100%;
+        margin-bottom: 150px;
+       
+         }
+       
+       /* .jumbotron{
+       background-image: url("../images/donuts-and-bagel-display-205961.jpg");
+       width: 800px;
+       height:400px;
+       background-size: cover;
        margin: auto;
-       background-color: purple;
-     }
+       margin-top: 30px;
+         
+           } */
+       
+         .submitOrder{
+           margin: auto;
+           background-color: purple;
+         }
+        
+         .top{
+           background-color: #0d1852;
+           color: white;
+         }
+         .order{
+           border-color:  #0d1852;
+           border: double 6px;
+           padding: 20px;
+           height: 1030px;
+           border-radius: 25px;
+           background-color: #0d1852;
+           color: white;
+           margin-left:30px;
+          
+         }
+        
+       .material-icons{
+         color:white;
+       }
+       
+       a{
+         color:white;
+          font-family: 'Righteous', cursive;
+         text-align: right;
+          
+       }
+       
+       a:hover{
+         background-color: grey;
+         border-radius: 10px;
+       }
+       
+       .navbar-nav > a{
+         color: white;  
+       }
+       .navbar > a{
+         color: white;
+       }
+       
+       i{
+         margin-right: 3px;
+       }
+       
+       TextArea{
+         height:50px;
+       }
+       .submit{
+         background-color: white;
+       
+       }
+       
+       .pics{
+       
+       margin: auto;
+       
+       }
+       
+       .salad {
+         font-size: 70px;
+       
+       }
+       
+       .registeredTop{
+         text-align: center;
+       }
+       
+       .carousel-wrapper{
+         margin-left: 0px;
+         margin-right: 40px;
+       }
+       
+       .map{
+         border:solid 6px;
+         border-color: #0d1852;
+         background-color: white;
+       }
+       
+       .mapText{
+         text-align: center;
+       }
+       
+       p{
+         font-family: 'Righteous', cursive;
+         color: #0d1852;
+         font-size:24px;
+       }
+       
+       .textOrderForm{
+         color: white;
+       }
+       
+       .button{
+         background-color: white;
+       }
+       
+       .ordersTable{
+         border: 1px solid #0d1852;
+       }
+       
+       .inventoryPlots{
+         margin-top: 30px;
+         border: 1px solid #0d1852;
+       }
+       
+       .orderStatusUpdate{
+         margin-top: 30px;
+         width: 40%;
+         display: inline-block;
+         background-color: white;
+         border: 1px solid #0d1852;
+         padding: 16px;
+       }
+       
+       .orderDelete{
+         margin-top: 30px;
+         display: inline-block;
+         width: 40%;
+         margin-left: 0px;
+         background-color: white;
+         border: 1px solid #0d1852;
+         padding: 16px;
+       }
+       
+       .ordersList{
+         margin-top: 30px;
+         border-radius: 4px;
+         background-color: #0d1852;
+         padding: 16px;
+       }
+       
+       .textListItem{
+         font-size: 20px;
+         line-height: 16px;
+       }
+       
+       .welcome {
+         font-size: 32px;
+         margin-bottom: 0px;
+         font-weight: bold;
+       }
+       
+       .demoimage {
+         float: left ;
+        
+         padding-right: 20px;
+       }
+       .demoText {
+        padding-top:15px;
+         padding-left: 10px;
+         font-size: 32px;
+       }
+       
+       .bakeryImage {
+         float: right ;
+         padding-left: 20px;
+       }
+       
+       .bakeryText {
+       font-size: 32px;
+       }
+       
+       
+       .text{
+         width:65%;
+         margin: auto;
+         margin-bottom:50px;
+         margin-top:20px;
+         
+       }
+       
+       hr{
+         border-top: 2px solid  #0d1852;
+       }
+       .btn.btn-primary{
+         background-image: url("../images/AdobeStock_261774082.jpeg");
+         border-color:#0d1852;
+         border-radius: 20%;
+         height:200px;
+         width:300px;
+         color:#0d1852;
+         border-width: 6px;
+         font-family: 'Righteous', cursive;
+         font-size: 24px;
+         white-space: normal;
+       }
+       
+       .signUp{
+         padding-top: 30px;
+         text-align: center;
+         padding-bottom: 10px;
+       }
+       
+       .orderButton{
+         background-color: white;
+       }
+       
+       .order2{
+         border-color:  #0d1852;
+         border: double 6px;
+         padding: 20px;
+         width: 1000px;
+         height: 1050px;
+         border-radius: 25px;
+         background-color: #0d1852;
+         color: white;
+         margin:auto;
+         margin-top:40px;
+       }
+       
+       .signup1{
+         height: 405px;
+         width:50%;
+         margin:auto;
+         border: solid double  #0d1852;
+         border-radius: 25px;
+         padding:25px;
+         margin-top:30px;
+         background-color: #0d1852
+         
+       }
+       .signUpP{
+         color: white;
+       }
+       
+       .loginPic{
+         height:180px;
+         width:200px;
+         float: left;
+       }
+       .loginPic2{
+         height:180px;
+         width:200px;
+        
+       }
+       .loginPic3{
+         height:180px;
+         width:200px;
+         float: right;
+         
+       }
+       
+       .images{
+         text-align: center;
+         padding-top: 30px;
+       }
+       .customerSignup{
+         height: 515px;
+         width:50%;
+         margin:auto;
+         border: solid double  #0d1852;
+         border-radius: 25px;
+         padding:25px;
+         margin-top:30px;
+         background-color: #0d1852
+       
+       }
+       
+       .bakeryLogin{
+         height: 300px;
+         width:50%;
+         margin:auto;
+         border: solid double  #0d1852;
+         border-radius: 25px;
+         padding:25px;
+         margin-top:30px;
+         background-color: #0d1852
+       
+       }
+       
+       .customerLogin{
+         height: 300px;
+         width:50%;
+         margin:auto;
+         border: solid double  #0d1852;
+         border-radius: 25px;
+         padding:25px;
+         margin-top:30px;
+         background-color: #0d1852
+       
+       }
+       
+       .orderForm{
+         color: white;
+         font-size: 18px;
+       }
     
-     .top{
-       background-color: #0d1852;
-       color: white;
-     }
-     .order{
-       border-color:  #0d1852;
-       border: double 6px;
-       padding: 20px;
-       height: 1030px;
-       border-radius: 25px;
-       background-color: #0d1852;
-       color: white;
-       margin-left:30px;
-      
-     }
-    
-   .material-icons{
-     color:white;
-   }
-   
-   a{
-     color:white;
-      font-family: 'Righteous', cursive;
-     text-align: right;
-      
-   }
-   
-   a:hover{
-     background-color: grey;
-     border-radius: 10px;
-   }
-   
-   .navbar-nav > a{
-     color: white;  
-   }
-   .navbar > a{
-     color: white;
-   }
-   
-   i{
-     margin-right: 3px;
-   }
-   
-   TextArea{
-     height:50px;
-   }
-   .submit{
-     background-color: white;
-   
-   }
-   
-   .pics{
-   
-   margin: auto;
-   
-   }
-   
-   .salad {
-     font-size: 70px;
-   
-   }
-   
-   .registeredTop{
-     text-align: center;
-   }
-   
-   .carousel-wrapper{
-     margin-left: 0px;
-     margin-right: 40px;
-   }
-   
-   .map{
-     border:solid 6px;
-     border-color: #0d1852;
-     background-color: white;
-   }
-   
-   .mapText{
-     text-align: center;
-   }
-   
-   p{
-     font-family: 'Righteous', cursive;
-     color: #0d1852;
-     font-size:24px;
-   }
-   
-   .textOrderForm{
-     color: white;
-   }
-   
-   .button{
-     background-color: white;
-   }
-   
-   .ordersTable{
-     border: 1px solid #0d1852;
-   }
-   
-   .inventoryPlots{
-     margin-top: 30px;
-     border: 1px solid #0d1852;
-   }
-   
-   .orderStatusUpdate{
-     margin-top: 30px;
-     width: 40%;
-     display: inline-block;
-     background-color: white;
-     border: 1px solid #0d1852;
-     padding: 16px;
-   }
-   
-   .orderDelete{
-     margin-top: 30px;
-     display: inline-block;
-     width: 40%;
-     margin-left: 0px;
-     background-color: white;
-     border: 1px solid #0d1852;
-     padding: 16px;
-   }
-   
-   .ordersList{
-     margin-top: 30px;
-     border-radius: 4px;
-     background-color: #0d1852;
-     padding: 16px;
-   }
-   
-   .textListItem{
-     font-size: 20px;
-     line-height: 16px;
-   }
-   
-   .welcome {
-     font-size: 32px;
-     margin-bottom: 0px;
-     font-weight: bold;
-   }
-   
-   .demoimage {
-     float: left ;
-    
-     padding-right: 20px;
-   }
-   .demoText {
-    padding-top:15px;
-     padding-left: 10px;
-     font-size: 32px;
-   }
-   
-   .bakeryImage {
-     float: right ;
-     padding-left: 20px;
-   }
-   
-   .bakeryText {
-   font-size: 32px;
-   }
-   
-   
-   .text{
-     width:65%;
-     margin: auto;
-     margin-bottom:50px;
-     margin-top:20px;
-     
-   }
-   
-   hr{
-     border-top: 2px solid  #0d1852;
-   }
-   .btn.btn-primary{
-     background-image: url("../images/AdobeStock_261774082.jpeg");
-     border-color:#0d1852;
-     border-radius: 20%;
-     height:200px;
-     width:300px;
-     color:#0d1852;
-     border-width: 6px;
-     font-family: 'Righteous', cursive;
-     font-size: 24px;
-     white-space: normal;
-   }
-   
-   .signUp{
-     padding-top: 30px;
-     text-align: center;
-     padding-bottom: 10px;
-   }
-   
-   .orderButton{
-     background-color: white;
-   }
-   
-   .order2{
-     border-color:  #0d1852;
-     border: double 6px;
-     padding: 20px;
-     width: 1000px;
-     height: 1050px;
-     border-radius: 25px;
-     background-color: #0d1852;
-     color: white;
-     margin:auto;
-     margin-top:40px;
-   }
-   
-   .signup1{
-     height: 405px;
-     width:50%;
-     margin:auto;
-     border: solid double  #0d1852;
-     border-radius: 25px;
-     padding:25px;
-     margin-top:30px;
-     background-color: #0d1852
-     
-   }
-   .signUpP{
-     color: white;
-   }
-   
-   .loginPic{
-     height:180px;
-     width:200px;
-     float: left;
-   }
-   .loginPic2{
-     height:180px;
-     width:200px;
-    
-   }
-   .loginPic3{
-     height:180px;
-     width:200px;
-     float: right;
-     
-   }
-   
-   .images{
-     text-align: center;
-     padding-top: 30px;
-   }
-   .customerSignup{
-     height: 515px;
-     width:50%;
-     margin:auto;
-     border: solid double  #0d1852;
-     border-radius: 25px;
-     padding:25px;
-     margin-top:30px;
-     background-color: #0d1852
-   
-   }
-   
-   .bakeryLogin{
-     height: 300px;
-     width:50%;
-     margin:auto;
-     border: solid double  #0d1852;
-     border-radius: 25px;
-     padding:25px;
-     margin-top:30px;
-     background-color: #0d1852
-   
-   }
-   
-   .customerLogin{
-     height: 300px;
-     width:50%;
-     margin:auto;
-     border: solid double  #0d1852;
-     border-radius: 25px;
-     padding:25px;
-     margin-top:30px;
-     background-color: #0d1852
-   
-   }
-   
-   .orderForm{
-     color: white;
-     font-size: 18px;
-   }

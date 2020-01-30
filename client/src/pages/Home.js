@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
+import { Link } from 'react-router-dom';
 import './style.css';
 
 
@@ -9,9 +10,6 @@ import './style.css';
 class Home extends Component {
 
   state = { modalshown: false }
-
-  showmodal = () => { this.setState({ modalshown: true }); };
-  hidemodal = () => { this.setState({ modalshown: false }); };
 
   render() {
     return (
@@ -24,8 +22,8 @@ class Home extends Component {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
-                <a className="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
-                <a className="nav-item nav-link active" href="#">Bakery Log In</a>
+                <a className="nav-item nav-link active"><Link to="/login-customer">Customer Log In <span class="sr-only">(current)</span></Link></a>
+                <a className="nav-item nav-link active"><Link to="/login-bakery">Bakery Log In</Link></a>
               </div>
             </div>
           </nav>
@@ -35,7 +33,8 @@ class Home extends Component {
           <h2>Making Bakery Orders A Piece Of Cake!</h2>
         </Jumbotron>
       <div className="signUp">
-        <button className= "bttnOne" className="btn btn-primary" type="submit">New Customer Sign Up (Click Here)</button>    <button className="bttnTwo" className="btn btn-primary" type="submit">New Bakery Sign Up (Click Here)</button>
+        <button className= "bttnOne" className="btn btn-primary" type="submit" onClick={()=> {this.props.history.replace('/signup-customer')}}>New Customer Sign Up</button>    
+        <button className="bttnTwo" className="btn btn-primary" type="submit" onClick={()=> {this.props.history.replace('/signup-bakery')}}>New Bakery Sign Up</button>
 </div>
 <div className="text">
         <div className="customer">
