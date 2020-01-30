@@ -433,7 +433,7 @@ class Inventory extends Component {
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                                <div className="navbar-nav">
+                                <div className="navbar-nav ml-auto">
                                     <a className="nav-item nav-link active" href="/orders">Orders<span class="sr-only">(current)</span></a>
                                     <a className="nav-item nav-link active" href="/inventory">Inventory</a>
                                 

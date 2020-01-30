@@ -184,7 +184,7 @@ class Customer extends Component {
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+      <div class="navbar-nav ml-auto">
         
       </div>
     </div>
