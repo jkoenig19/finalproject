@@ -435,7 +435,7 @@ class Inventory extends Component {
                             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div className="navbar-nav ml-auto">
                                     <a className="nav-item nav-link active" href="/orders">Orders<span class="sr-only">(current)</span></a>
-                                    <a className="nav-item nav-link active" href="/inventory">Inventory</a>
+                                    <a className="nav-item nav-link active" href="/bakery">Bakery</a>
                                 
                                     <a className="nav-link" onClick={this.handleLogOut}>Log Out</a>
                                 </div>
@@ -641,6 +641,8 @@ class Inventory extends Component {
             Submit New Inventory
             </FormBtn>
         </form>
+        <br></br>
+        <br></br>
         <p style={{ color: 'white' }}>Inventory Messages: {this.state.inventoryMessage}</p>
         </div>
         </div>
