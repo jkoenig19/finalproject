@@ -65,7 +65,7 @@ class LoginCustomer extends Component {
         <form className="customerLogin">
             <p className="signUpP">Message: {this.state.message ? this.state.message : "None"}</p>
             
-                <p className="signUpP">Customer sign in</p>
+                <p className="signUpP">Customer Log in</p>
                 <Input
                     value={this.state.username}
                     onChange={this.handleInputChange}
