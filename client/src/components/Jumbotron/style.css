@@ -1,10 +1,10 @@
 
-.xjumbotron{
-    background-image: url("../../images/donuts-and-bagel-display-205961.jpg");
-    background-size:  contain;
+.jumbotron{
+    background-image: url("../../images/jumbotron3.jpg");
+    background-size:  cover;
     background-repeat: no-repeat;
-    background-position: center;
-
+    
+    width: 75%;
     margin: auto;
     margin-top: 30px;
     margin-right: 16px;
