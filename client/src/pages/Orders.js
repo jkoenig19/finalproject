@@ -153,7 +153,7 @@ class Orders extends Component {
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div className="navbar-collapse" id="navbarNavAltMarkup">
                                 <div className="navbar-nav ml-auto">
                                     <a className="nav-item nav-link active" href="/bakery">Bakery<span class="sr-only">(current)</span></a>
                                     <a className="nav-item nav-link active" href="/inventory">Inventory</a>
@@ -161,12 +161,6 @@ class Orders extends Component {
                                 </div>
                             </div>
                         </nav>
-                            <div class="navbar-collapse" id="navbarNavAltMarkup">
-
-                                <div class="navbar-nav">
-                                    <a className="nav-link" onClick={this.handleLogOut}>Log Out</a>
-                                </div>
-                            </div>
                     </div>
                         <div className="container-fluid">
                             <div className="ordersTable" style={{ width: "100%", height: "300px", marginTop: "30px" }}>

@@ -66,7 +66,7 @@ class LoginBakery extends Component {
             
         <p class="signUpP">Message: {this.state.message ? this.state.message : "None"}</p>
            
-                <p class="signUpP">Bakery sign in</p>
+                <p class="signUpP">Bakery Log in</p>
                 <Input
                     value={this.state.username}
                     onChange={this.handleInputChange}
