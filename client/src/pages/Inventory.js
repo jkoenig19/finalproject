@@ -394,6 +394,12 @@ class Inventory extends Component {
         }
     }
 
+    handleLogOut = event => {
+        event.preventDefault();
+        sessionStorage.clear();
+        window.location.replace("/")
+      }
+
     render() {
         const authorization = sessionStorage.getItem("registered");
         if (authorization !== "bakery"){
@@ -413,12 +419,13 @@ class Inventory extends Component {
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Bakery Log In</a>
+      <a class="nav-item nav-link" onClick={this.handleLogOut}>Log Out</a>
     </div>
   </div>
 </nav>
 </div>
     <div className="container-fluid">
-        <div style = {{width: "100%", height: "300px"}}>
+        <div className="inventoryPlots" style = {{width: "100%", height: "300px"}}>
             <Plot
             data={this.state.dataVanilla}
             style = {{width: "100%", height: "100%"}}
@@ -427,7 +434,7 @@ class Inventory extends Component {
             useResizeHandler
             />
         </div>
-        <div style = {{width: "100%", height: "300px"}}>
+        <div className="inventoryPlots" style = {{width: "100%", height: "300px"}}>
             <Plot
             data={this.state.dataChocolate}
             style = {{width: "100%", height: "100%"}}
@@ -436,7 +443,7 @@ class Inventory extends Component {
             useResizeHandler
             />
         </div>
-        <div style = {{width: "100%", height: "300px"}}>
+        <div className="inventoryPlots" style = {{width: "100%", height: "300px"}}>
             <Plot
             data={this.state.dataCarrot}
             style = {{width: "100%", height: "100%"}}
@@ -445,7 +452,7 @@ class Inventory extends Component {
             useResizeHandler
             />
         </div>
-        <div style = {{width: "100%", height: "300px"}}>
+        <div className="inventoryPlots" style = {{width: "100%", height: "300px"}}>
             <Plot
             data={this.state.dataRed}
             style = {{width: "100%", height: "100%"}}
@@ -454,7 +461,7 @@ class Inventory extends Component {
             useResizeHandler
             />
         </div>
-        <div style = {{width: "100%", height: "300px"}}>
+        <div className="inventoryPlots" style = {{width: "100%", height: "300px"}}>
             <Plot
             data={this.state.dataOther}
             style = {{width: "100%", height: "100%"}}
@@ -470,7 +477,7 @@ class Inventory extends Component {
                 onChange={this.handleInputChange}
                 name="flavor"
                 >
-                <option>- Select flavor -</option>
+                <option value="" disabled selected>- Select flavor -</option>
                 <option value ="vanilla">Vanilla</option>
                 <option value ="chocolate">Chocolate</option>
                 <option value ="carrot">Carrot</option>
@@ -481,7 +488,7 @@ class Inventory extends Component {
                 onChange={this.handleInputChange}
                 name="size"
                 >
-                <option>- Select size -</option>
+                <option value="" disabled selected>- Select size -</option>
                 <option value ="cake6">6 inch</option>
                 <option value ="cake9">9 inch</option>
                 <option value ="cake12">12 inch</option>
@@ -496,7 +503,7 @@ class Inventory extends Component {
                 onChange={this.handleInputChange}
                 name="other"
                 >
-                <option>- Select other inventory item -</option>
+                <option value="" disabled selected>- Select other inventory item -</option>
                 <option value ="cookies">Cookies</option>
                 <option value ="cupcakes">Cupcakes</option>
             </select>
@@ -545,7 +552,7 @@ class Inventory extends Component {
                 onChange={this.handleInputChange}
                 name="flavorNew"
                 >                            >
-                <option>- Select flavor -</option>
+                <option value="" disabled selected>- Select flavor -</option>
                 <option value ="vanilla">Vanilla</option>
                 <option value ="chocolate">Chocolate</option>
                 <option value ="carrot">Carrot</option>
@@ -556,7 +563,7 @@ class Inventory extends Component {
                 onChange={this.handleInputChange}
                 name="sizeNew"
                 >
-                <option>- Select size -</option>
+                <option value="" disabled selected>- Select size -</option>
                 <option value ="cake6">6 inch</option>
                 <option value ="cake9">9 inch</option>
                 <option value ="cake12">12 inch</option>
@@ -583,7 +590,7 @@ class Inventory extends Component {
                 onChange={this.handleInputChange}
                 name="otherNew"
                 >
-                <option>- Select other inventory item -</option>
+                <option value="" disabled selected>- Select other inventory item -</option>
                 <option value ="cookies">Cookies</option>
                 <option value ="cupcakes">Cupcakes</option>
             </select>

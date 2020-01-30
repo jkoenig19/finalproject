@@ -85,6 +85,7 @@ class SignupBakery extends Component {
                     onChange={this.handleInputChange}
                     name="password"
                     placeholder="password"
+                    type="password"
                 />
                 <Input
                     value={this.state.name}
