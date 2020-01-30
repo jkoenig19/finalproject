@@ -28,10 +28,28 @@ class SignupCustomer extends Component {
         API.getCustomers()
             .then(res => {
                 const allUsers = res.data;
-                const usernameDuplicate = allUsers.filter(user => user.username === this.state.username)
-                if (usernameDuplicate.length !== 0) {
-                    this.setState({ message: "Username already taken, please try again!" })
-                    this.setState({ username: "" });
+                const usernameDuplicate = allUsers.filter(user => user.username === this.state.username);
+                const userBakeryCreated = allUsers.filter(user => user.phone === this.state.phone);
+                if (usernameDuplicate.length !== 0){
+                    this.setState({message: "Username already taken, please try again!"})
+                    this.setState({username: ""});
+                }
+                else if (userBakeryCreated.length !== 0){
+                    API.updateCustomer(userBakeryCreated[0]._id,
+                        {
+                            username: this.state.username,
+                            password: this.state.password,
+                            name: this.state.name,
+                            email: this.state.email,
+                            location: this.state.location
+                    })
+                    .catch(err => console.log(err));
+                    const user_variable = this.state.username;
+                    sessionStorage.clear();
+                    sessionStorage.setItem("username", user_variable)
+                    sessionStorage.setItem("registered", "customer")
+                    this.setState({message: "Registation completed!"})
+                    window.location.replace("/customer")
                 }
                 else {
                     API.saveCustomer({
@@ -47,16 +65,16 @@ class SignupCustomer extends Component {
                     sessionStorage.clear();
                     sessionStorage.setItem("username", user_variable)
                     sessionStorage.setItem("registered", "customer")
-                    this.setState({ message: "Success!" })
-                    window.location.replace("/customer")
-                }
+                    this.setState({message: "Success!"})
+                   window.location.replace("/customer")
+               }
             })
             .catch(err => console.log(err));
     }
 
     render() {
         return (
-            <div>
+            <div>  
                 <div className="top">
                     <nav class="navbar navbar-expand-lg">
                         <i className="material-icons">cake</i>  <a class="navbar-brand"><Link to="/">Bakery Link</Link></a>
@@ -71,54 +89,60 @@ class SignupCustomer extends Component {
                         </div>
                     </nav>
                 </div>
-                <div className="container-fluid">
-                    <p>Message: {this.state.message ? this.state.message : "None"}</p>
-                    <form>
-                        <p>Customer sign up</p>
-                        <Input
-                            value={this.state.username}
-                            onChange={this.handleInputChange}
-                            name="username"
-                            placeholder="username"
-                        />
-                        <Input
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            name="password"
-                            placeholder="password"
-                        />
-                        <Input
-                            value={this.state.name}
-                            onChange={this.handleInputChange}
-                            name="name"
-                            placeholder="name"
-                        />
-                        <Input
-                            value={this.state.phone}
-                            onChange={this.handleInputChange}
-                            name="phone"
-                            placeholder="phone"
-                        />
-                        <Input
-                            value={this.state.email}
-                            onChange={this.handleInputChange}
-                            name="email"
-                            placeholder="email"
-                        />
-                        <Input
-                            value={this.state.location}
-                            onChange={this.handleInputChange}
-                            name="location"
-                            placeholder="location"
-                        />
-                        <FormBtn
-                            onClick={this.handleCustomerNewSubmit}
-                        >
-                            Submit
+        <div className="container-fluid">
+        <form className="customerSignup">
+            <p class="signUpP">Message: {this.state.message ? this.state.message : "None"}</p>
+            
+                <p class="signUpP">Customer sign up</p>
+                <Input
+                    value={this.state.username}
+                    onChange={this.handleInputChange}
+                    name="username"
+                    placeholder="username"
+                />
+                <Input
+                    value={this.state.password}
+                    onChange={this.handleInputChange}
+                    name="password"
+                    placeholder="password"
+                    type="password"
+                />
+                <Input
+                    value={this.state.name}
+                    onChange={this.handleInputChange}
+                    name="name"
+                    placeholder="name"
+                />
+                <Input
+                    value={this.state.phone}
+                    onChange={this.handleInputChange}
+                    name="phone"
+                    placeholder="phone"
+                />
+                <Input
+                    value={this.state.email}
+                    onChange={this.handleInputChange}
+                    name="email"
+                    placeholder="email"
+                />
+                <Input
+                    value={this.state.location}
+                    onChange={this.handleInputChange}
+                    name="location"
+                    placeholder="location"
+                />
+                <FormBtn
+                    onClick={this.handleCustomerNewSubmit}
+                >
+                    Submit
                 </FormBtn>
-                    </form>
-                </div>
-                <Footer></Footer>
+            </form>
+            <div className="images">
+            <img className="loginPic"src={require("../images/white-round-cake-topped-with-yellow-slice-fruit-140831.jpg")} alt="yellow slice"/>            <img className="loginPic2"src={require("../images/baked-pastries-2872882.jpg")} alt="pastries"/>            <img className= "loginPic3" src={require("../images/close-up-photo-of-brownies-3026804.jpg")} alt="brownies"/>
+         
+            </div>
+            </div>
+            <Footer></Footer>
             </div>
         )
     }

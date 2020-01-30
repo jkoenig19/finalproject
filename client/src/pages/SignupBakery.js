@@ -54,7 +54,7 @@ class SignupBakery extends Component {
 
     render() {
         return (
-            <div>
+            <div>  
                 <div className="top">
                     <nav class="navbar navbar-expand-lg">
                         <i className="material-icons">cake</i>  <a class="navbar-brand"><Link to="/">Bakery Link</Link></a>
@@ -69,42 +69,52 @@ class SignupBakery extends Component {
                         </div>
                     </nav>
                 </div>
-                <div className="container-fluid">
-                    <p>Message: {this.state.message ? this.state.message : "None"}</p>
-                    <form>
-                        <p>Bakery sign up</p>
-                        <Input
-                            value={this.state.username}
-                            onChange={this.handleInputChange}
-                            name="username"
-                            placeholder="username"
-                        />
-                        <Input
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            name="password"
-                            placeholder="password"
-                        />
-                        <Input
-                            value={this.state.name}
-                            onChange={this.handleInputChange}
-                            name="name"
-                            placeholder="name"
-                        />
-                        <Input
-                            value={this.state.location}
-                            onChange={this.handleInputChange}
-                            name="location"
-                            placeholder="location"
-                        />
-                        <FormBtn
-                            onClick={this.handleBakeryNewSubmit}
-                        >
-                            Submit
+        <div className="container-fluid">
+        <div className="signup1">
+            <p class="signUpP">Message: {this.state.message ? this.state.message : "None"}</p>
+            <form>
+                <div className="bakerSignup"></div>
+                <p class="signUpP">Bakery sign up</p>
+                <Input
+                    value={this.state.username}
+                    onChange={this.handleInputChange}
+                    name="username"
+                    placeholder="username"
+                />
+                <Input
+                    value={this.state.password}
+                    onChange={this.handleInputChange}
+                    name="password"
+                    placeholder="password"
+                    type="password"
+                />
+                <Input
+                    value={this.state.name}
+                    onChange={this.handleInputChange}
+                    name="name"
+                    placeholder="name"
+                />
+                <Input
+                    value={this.state.location}
+                    onChange={this.handleInputChange}
+                    name="location"
+                    placeholder="location"
+                />
+                <FormBtn
+                    onClick={this.handleBakeryNewSubmit}
+                >
+                    Submit
                 </FormBtn>
-                    </form>
-                </div>
-                <Footer></Footer>
+            </form>
+            <br></br>
+            <br></br>
+            </div>
+            <div className="images">
+            <img className="loginPic"src={require("../images/white-round-cake-topped-with-yellow-slice-fruit-140831.jpg")} alt="yellowslice"/>            <img className="loginPic2"src={require("../images/baked-pastries-2872882.jpg")} alt="pastries"/>            <img className="loginPic3"src={require("../images/close-up-photo-of-brownies-3026804.jpg")}alt="brownie"/>
+         
+            </div>
+            </div>
+            <Footer></Footer>
             </div>
         )
     }

@@ -412,15 +412,21 @@ class Inventory extends Component {
         }
     }
 
+    handleLogOut = event => {
+        event.preventDefault();
+        sessionStorage.clear();
+        window.location.replace("/")
+      }
+
     render() {
         const authorization = sessionStorage.getItem("registered");
         if (authorization !== "bakery") {
             window.location.replace("/signup-bakery")
         }
-        else {
-            return (
-
-                <div>
+        else {  
+      return (
+          
+        <div>
                     <div className="top">
                         <nav class="navbar navbar-expand-lg">
                             <i className="material-icons">cake</i>  <a class="navbar-brand"><Link to="/">Bakery Link</Link></a>
@@ -435,211 +441,208 @@ class Inventory extends Component {
                             </div>
                         </nav>
                     </div>
-                    <div className="container-fluid">
-                        <div style={{ width: "100%", height: "300px" }}>
-                            <Plot
-                                data={this.state.dataVanilla}
-                                style={{ width: "100%", height: "100%" }}
-                                layout={{ title: 'Vanilla Cake Inventory Plot' }}
-                                config={{ displayModeBar: false }}
-                                useResizeHandler
-                            />
-                        </div>
-                        <div style={{ width: "100%", height: "300px" }}>
-                            <Plot
-                                data={this.state.dataChocolate}
-                                style={{ width: "100%", height: "100%" }}
-                                layout={{ title: 'Chocolate Cake Inventory Plot' }}
-                                config={{ displayModeBar: false }}
-                                useResizeHandler
-                            />
-                        </div>
-                        <div style={{ width: "100%", height: "300px" }}>
-                            <Plot
-                                data={this.state.dataCarrot}
-                                style={{ width: "100%", height: "100%" }}
-                                layout={{ title: 'Carrot Cake Inventory Plot' }}
-                                config={{ displayModeBar: false }}
-                                useResizeHandler
-                            />
-                        </div>
-                        <div style={{ width: "100%", height: "300px" }}>
-                            <Plot
-                                data={this.state.dataRed}
-                                style={{ width: "100%", height: "100%" }}
-                                layout={{ title: 'Red Velvet Cake Inventory Plot' }}
-                                config={{ displayModeBar: false }}
-                                useResizeHandler
-                            />
-                        </div>
-                        <div style={{ width: "100%", height: "300px" }}>
-                            <Plot
-                                data={this.state.dataOther}
-                                style={{ width: "100%", height: "100%" }}
-                                layout={{ title: 'Other Inventory Plot' }}
-                                config={{ displayModeBar: false }}
-                                useResizeHandler
-                            />
-                        </div>
-
-                        <div className="inventoryupdate">
-                            <form>
-                                <p style={{ color: 'white' }}>Select cake</p>
-                                <select className="form-control"
-                                    value={this.state.flavor}
-                                    onChange={this.handleInputChange}
-                                    name="flavor"
-                                >
-                                    <option>- Select flavor -</option>
-                                    <option value="vanilla">Vanilla</option>
-                                    <option value="chocolate">Chocolate</option>
-                                    <option value="carrot">Carrot</option>
-                                    <option value="red">Red Velvet</option>
-                                </select>
-                                <select className="form-control"
-                                    value={this.state.size}
-                                    onChange={this.handleInputChange}
-                                    name="size"
-                                >
-                                    <option>- Select size -</option>
-                                    <option value="cake6">6 inch</option>
-                                    <option value="cake9">9 inch</option>
-                                    <option value="cake12">12 inch</option>
-                                    <option value="cake14">14 inch</option>
-                                    <option value="cakeQuarter">1/4 Sheet</option>
-                                    <option value="cakeHalf">1/2 Sheet</option>
-                                    <option value="cakeTiered">Tiered</option>
-                                </select>
-                                <p style={{ color: 'white' }}>or</p>
-                                <select className="form-control"
-                                    value={this.state.other}
-                                    onChange={this.handleInputChange}
-                                    name="other"
-
-                                >
-                                    <option>- Select other inventory item -</option>
-                                    <option value="cookies">Cookies</option>
-                                    <option value="cupcakes">Cupcakes</option>
-                                </select>
-                                <div style={{ padding: '15px' }}>
-                                    <FormBtn
-                                        onClick={this.handleSelectionSubmit}>
-                                        Select Inventory to Update
-                             </FormBtn>
-                                </div>
-                            </form>
-                        </div>
-                        <div className="quantityprice">
-                            <div>
-                                <p style={{ color: 'white' }}>Current Selection Information</p>
-                                <p style={{ color: 'white' }}>Current Quantity: {this.state.selectedQuantity}</p>
-                                <p style={{ color: 'white' }}>Current Unit Price ($): {this.state.selectedPrice}</p>
-                            </div>
-                            <form>
-                                <Input
-                                    value={this.state.quantity}
-                                    onChange={this.handleInputChange}
-                                    name="quantity"
-                                    placeholder="Quantity"
-                                />
-                                <FormBtn
-                                    onClick={this.handleQuantitySubmit}
-                                >
-                                    Update Quantity
-                             </FormBtn>
-                            </form>
-
-                            <form>
-                                <Input
-                                    value={this.state.unitPrice}
-                                    onChange={this.handleInputChange}
-                                    name="unitPrice"
-                                    placeholder="Unit Price"
-                                />
-                                <FormBtn
-                                    onClick={this.handlePriceSubmit}
-                                >
-                                    Update Unit Price
-                            </FormBtn>
-                            </form>
-                        </div>
-                        <div className="addnew">
-                            <form>
-                                <p style={{ color: 'white' }}>Add new inventory</p>
-                                <p style={{ color: 'white' }}>Select cake</p>
-                                <select className="form-control"
-                                    value={this.state.flavorNew}
-                                    onChange={this.handleInputChange}
-                                    name="flavorNew"
-                                >                            >
-                                    <option>- Select flavor -</option>
-                                    <option value="vanilla">Vanilla</option>
-                                    <option value="chocolate">Chocolate</option>
-                                    <option value="carrot">Carrot</option>
-                                    <option value="red">Red Velvet</option>
-                                </select>
-                                <select className="form-control"
-                                    value={this.state.sizeNew}
-                                    onChange={this.handleInputChange}
-                                    name="sizeNew"
-                                >
-                                    <option>- Select size -</option>
-                                    <option value="cake6">6 inch</option>
-                                    <option value="cake9">9 inch</option>
-                                    <option value="cake12">12 inch</option>
-                                    <option value="cake14">14 inch</option>
-                                    <option value="cakeQuarter">1/4 Sheet</option>
-                                    <option value="cakeHalf">1/2 Sheet</option>
-                                    <option value="cakeTiered">Tiered</option>
-                                </select>
-                                <Input
-                                    value={this.state.quantityCake}
-                                    onChange={this.handleInputChange}
-                                    name="quantityCake"
-                                    placeholder="Cake quantity"
-                                />
-                                <Input
-                                    value={this.state.unitPriceCake}
-                                    onChange={this.handleInputChange}
-                                    name="unitPriceCake"
-                                    placeholder="Cake unit price"
-                                />
-                                <p style={{ color: 'white' }}>or</p>
-                                <select className="form-control"
-                                    value={this.state.otherNew}
-                                    onChange={this.handleInputChange}
-                                    name="otherNew"
-                                >
-                                    <option>- Select other inventory item -</option>
-                                    <option value="cookies">Cookies</option>
-                                    <option value="cupcakes">Cupcakes</option>
-                                </select>
-                                <Input
-                                    value={this.state.quantityOther}
-                                    onChange={this.handleInputChange}
-                                    name="quantityOther"
-                                    placeholder="Other quantity"
-                                />
-                                <Input
-                                    value={this.state.unitPriceOther}
-                                    onChange={this.handleInputChange}
-                                    name="unitPriceOther"
-                                    placeholder="Other unit price"
-                                />
-                                <FormBtn
-                                    onClick={this.handleNewSubmit}
-                                >
-                                    Submit New Inventory
-                                 </FormBtn>
-                            </form>
-                        
-                        <p style={{ color: 'white' }}>Inventory Messages: {this.state.inventoryMessage}</p>
-                        </div>
-                    </div>
-                    <Footer></Footer>
-                </div>
-            );
-        }
+    <div className="container-fluid">
+        <div className="inventoryPlots" style = {{width: "100%", height: "300px"}}>
+            <Plot
+            data={this.state.dataVanilla}
+            style = {{width: "100%", height: "100%"}}
+            layout={ {title: 'Vanilla Cake Inventory Plot'} }
+            config={ {displayModeBar: false} }
+            useResizeHandler
+            />
+        </div>
+        <div className="inventoryPlots" style = {{width: "100%", height: "300px"}}>
+            <Plot
+            data={this.state.dataChocolate}
+            style = {{width: "100%", height: "100%"}}
+            layout={ {title: 'Chocolate Cake Inventory Plot'} }
+            config={ {displayModeBar: false} }
+            useResizeHandler
+            />
+        </div>
+        <div className="inventoryPlots" style = {{width: "100%", height: "300px"}}>
+            <Plot
+            data={this.state.dataCarrot}
+            style = {{width: "100%", height: "100%"}}
+            layout={ {title: 'Carrot Cake Inventory Plot'} }
+            config={ {displayModeBar: false} }
+            useResizeHandler
+            />
+        </div>
+        <div className="inventoryPlots" style = {{width: "100%", height: "300px"}}>
+            <Plot
+            data={this.state.dataRed}
+            style = {{width: "100%", height: "100%"}}
+            layout={ {title: 'Red Velvet Cake Inventory Plot'} }
+            config={ {displayModeBar: false} }
+            useResizeHandler
+            />
+        </div>
+        <div className="inventoryPlots" style = {{width: "100%", height: "300px"}}>
+            <Plot
+            data={this.state.dataOther}
+            style = {{width: "100%", height: "100%"}}
+            layout={ {title: 'Other Inventory Plot'} }
+            config={ {displayModeBar: false} }
+            useResizeHandler
+            />
+        </div>
+        <div className="inventoryupdate">
+        <form>
+            <p style={{ color: 'white' }}>Select cake</p>
+            <select className="form-control" 
+                value={this.state.flavor}
+                onChange={this.handleInputChange}
+                name="flavor"
+                >
+                <option value="" disabled selected>- Select flavor -</option>
+                <option value ="vanilla">Vanilla</option>
+                <option value ="chocolate">Chocolate</option>
+                <option value ="carrot">Carrot</option>
+                <option value ="red">Red Velvet</option>
+            </select>
+            <select className="form-control" 
+                value={this.state.size}
+                onChange={this.handleInputChange}
+                name="size"
+                >
+                <option value="" disabled selected>- Select size -</option>
+                <option value ="cake6">6 inch</option>
+                <option value ="cake9">9 inch</option>
+                <option value ="cake12">12 inch</option>
+                <option value ="cake14">14 inch</option>
+                <option value ="cakeQuarter">1/4 Sheet</option>
+                <option value ="cakeHalf">1/2 Sheet</option>
+                <option value ="cakeTiered">Tiered</option>
+            </select>
+            <p style={{ color: 'white' }}>or</p>
+            <select className="form-control"
+                value={this.state.other}
+                onChange={this.handleInputChange}
+                name="other"
+                >
+                <option value="" disabled selected>- Select other inventory item -</option>
+                <option value ="cookies">Cookies</option>
+                <option value ="cupcakes">Cupcakes</option>
+            </select>
+            <div style={{ padding: '15px' }}>
+            <FormBtn
+                onClick={this.handleSelectionSubmit}
+            >
+            Select Inventory to Update
+            </FormBtn>
+            </div>
+        </form>
+        </div>
+        <div className="quantityprice">
+        <div>
+            <p style={{ color: 'white' }}>Current Selection Information</p>
+            <p style={{ color: 'white' }}>Current Quantity: {this.state.selectedQuantity}</p>
+            <p style={{ color: 'white' }}>Current Unit Price ($): {this.state.selectedPrice}</p>
+        </div>
+        <form>
+            <Input
+                value={this.state.quantity}
+                onChange={this.handleInputChange}
+                name="quantity"
+                placeholder="Quantity"
+            />
+            <FormBtn
+                onClick={this.handleQuantitySubmit}
+            >
+                Update Quantity
+            </FormBtn>
+        </form>
+        <form>
+            <Input
+                value={this.state.unitPrice}
+                onChange={this.handleInputChange}
+                name="unitPrice"
+                placeholder="Unit Price"
+            />
+            <FormBtn
+                onClick={this.handlePriceSubmit}
+            >
+                Update Unit Price
+            </FormBtn>
+        </form>
+        </div>
+        <div className="addnew">
+        <form>
+        <p style={{ color: 'white' }}>Add new inventory</p>
+        <p style={{ color: 'white' }}>Select cake</p>
+            <select className="form-control"
+                value={this.state.flavorNew}
+                onChange={this.handleInputChange}
+                name="flavorNew"
+                >                            >
+                <option value="" disabled selected>- Select flavor -</option>
+                <option value ="vanilla">Vanilla</option>
+                <option value ="chocolate">Chocolate</option>
+                <option value ="carrot">Carrot</option>
+                <option value ="red">Red Velvet</option>
+            </select>
+            <select className="form-control"
+                value={this.state.sizeNew}
+                onChange={this.handleInputChange}
+                name="sizeNew"
+                >
+                <option value="" disabled selected>- Select size -</option>
+                <option value ="cake6">6 inch</option>
+                <option value ="cake9">9 inch</option>
+                <option value ="cake12">12 inch</option>
+                <option value ="cake14">14 inch</option>
+                <option value ="cakeQuarter">1/4 Sheet</option>
+                <option value ="cakeHalf">1/2 Sheet</option>
+                <option value ="cakeTiered">Tiered</option>
+            </select>
+            <Input
+                value={this.state.quantityCake}
+                onChange={this.handleInputChange}
+                name="quantityCake"
+                placeholder="Cake quantity"
+            />
+            <Input
+                value={this.state.unitPriceCake}
+                onChange={this.handleInputChange}
+                name="unitPriceCake"
+                placeholder="Cake unit price"
+            />
+            <p style={{ color: 'white' }}>or</p>
+            <select className="form-control"
+                value={this.state.otherNew}
+                onChange={this.handleInputChange}
+                name="otherNew"
+                >
+                <option value="" disabled selected>- Select other inventory item -</option>
+                <option value ="cookies">Cookies</option>
+                <option value ="cupcakes">Cupcakes</option>
+            </select>
+            <Input
+                value={this.state.quantityOther}
+                onChange={this.handleInputChange}
+                name="quantityOther"
+                placeholder="Other quantity"
+            />
+            <Input
+                value={this.state.unitPriceOther}
+                onChange={this.handleInputChange}
+                name="unitPriceOther"
+                placeholder="Other unit price"
+            />
+            <FormBtn
+                onClick={this.handleNewSubmit}
+            >
+            Submit New Inventory
+            </FormBtn>
+        </form>
+        <p style={{ color: 'white' }}>Inventory Messages: {this.state.inventoryMessage}</p>
+        </div>
+        </div>
+        <Footer></Footer>
+        </div>
+      );
+    }
     }
 }
 

@@ -11,9 +11,6 @@ class Home extends Component {
 
   state = { modalshown: false }
 
-  showmodal = () => { this.setState({ modalshown: true }); };
-  hidemodal = () => { this.setState({ modalshown: false }); };
-
   render() {
     return (
       <div className="bg">
@@ -32,8 +29,8 @@ class Home extends Component {
           </nav>
         </div>
         <Jumbotron>
-          <h1 className="display-4">Bakery Link</h1>
-          <h2 className="lead">Making Bakery Orders A Piece Of Cake!</h2>
+          <h1>Bakery Link</h1>
+          <h2>Making Bakery Orders A Piece Of Cake!</h2>
         </Jumbotron>
       <div className="signUp">
         <button className= "bttnOne" className="btn btn-primary" type="submit" onClick={()=> {this.props.history.replace('/signup-customer')}}>New Customer Sign Up</button>    

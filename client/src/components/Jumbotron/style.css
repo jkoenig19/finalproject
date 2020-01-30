@@ -1,6 +1,6 @@
 
 .jumbotron{
-    background-image: url("../../images/donuts-and-bagel-display-205961.jpg");
+    background-image: url("../../images/jumbotron3.jpg");
     background-size:  cover;
     background-repeat: no-repeat;
     
@@ -19,29 +19,18 @@ h1{
     color:  white;
     text-shadow: 2px 2px 5px  #0d1852;
     text-align:center;
-    font-size:72px;
+    font-size: 68px;
     margin: auto;
     padding-top: 20px;
 } 
-h3{
-    font-family: 'Pacifico', cursive;
-    color:  #9933ff
-}   
-.logo{
-        max-width: 15%;
-        height: auto;
-        float: center;
-        padding: 25px;
-}
-
 
 h2{
     font-family: 'Pacifico', cursive;
     color:  white;
     text-shadow: 2px 2px 5px  #0d1852;
     text-align:center;
-    font-size:42px;
+    font-size: 32px;
     margin: auto;
-    padding-top: 20px;
+    padding-top: 30px;
     position: fixed bottom;
 } 

@@ -46,7 +46,7 @@ class LoginBakery extends Component {
 
     render() {
         return (
-            <div>
+            <div>  
                 <div className="top">
                     <nav class="navbar navbar-expand-lg">
                         <i className="material-icons">cake</i>  <a class="navbar-brand"><Link to="/">Bakery Link</Link></a>
@@ -61,30 +61,37 @@ class LoginBakery extends Component {
                         </div>
                     </nav>
                 </div>
-                <div className="container-fluid">
-                    <p>Message: {this.state.message ? this.state.message : "None"}</p>
-                    <form>
-                        <p>Bakery sign in</p>
-                        <Input
-                            value={this.state.username}
-                            onChange={this.handleInputChange}
-                            name="username"
-                            placeholder="username"
-                        />
-                        <Input
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            name="password"
-                            placeholder="password"
-                        />
-                        <FormBtn
-                            onClick={this.handleBakeryReturnSubmit}
-                        >
-                            Submit
+        <div className="container-fluid">
+        <form className="bakeryLogin">
+            
+        <p class="signUpP">Message: {this.state.message ? this.state.message : "None"}</p>
+           
+                <p class="signUpP">Bakery sign in</p>
+                <Input
+                    value={this.state.username}
+                    onChange={this.handleInputChange}
+                    name="username"
+                    placeholder="username"
+                />
+                <Input
+                    value={this.state.password}
+                    onChange={this.handleInputChange}
+                    name="password"
+                    placeholder="password"
+                    type="password"
+                />
+                <FormBtn
+                    onClick={this.handleBakeryReturnSubmit}
+                >
+                    Submit
                 </FormBtn>
-                    </form>
-                </div>
-                <Footer></Footer>
+            </form>
+            <div className="images">
+            <img className="loginPic"src={require("../images/white-round-cake-topped-with-yellow-slice-fruit-140831.jpg")}alt="yellow slice"/>            <img className="loginPic2"src={require("../images/baked-pastries-2872882.jpg")}alt="pastries"/>            <img className="loginPic3"src={require("../images/close-up-photo-of-brownies-3026804.jpg")}alt="brownies"/>
+         
+            </div>
+            </div>
+            <Footer></Footer>
             </div>
         )
     }
