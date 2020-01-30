@@ -501,6 +501,7 @@ class Inventory extends Component {
                 <option value ="carrot">Carrot</option>
                 <option value ="red">Red Velvet</option>
             </select>
+            <br></br>
             <select className="form-control" 
                 value={this.state.size}
                 onChange={this.handleInputChange}
@@ -582,6 +583,7 @@ class Inventory extends Component {
                 <option value ="carrot">Carrot</option>
                 <option value ="red">Red Velvet</option>
             </select>
+            <br></br>
             <select className="form-control"
                 value={this.state.sizeNew}
                 onChange={this.handleInputChange}
@@ -596,6 +598,7 @@ class Inventory extends Component {
                 <option value ="cakeHalf">1/2 Sheet</option>
                 <option value ="cakeTiered">Tiered</option>
             </select>
+            <br></br>
             <Input
                 value={this.state.quantityCake}
                 onChange={this.handleInputChange}
@@ -618,6 +621,7 @@ class Inventory extends Component {
                 <option value ="cookies">Cookies</option>
                 <option value ="cupcakes">Cupcakes</option>
             </select>
+            <br></br>
             <Input
                 value={this.state.quantityOther}
                 onChange={this.handleInputChange}

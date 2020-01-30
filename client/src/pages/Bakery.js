@@ -1,7 +1,7 @@
 import React , { Component } from "react";
 import Footer from "../components/Footer";
 import './style.css';
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, TextArea, FormBtn, GoBackBtn } from "../components/Form";
 import { Link } from 'react-router-dom';
 import API from "../utils/API";
 

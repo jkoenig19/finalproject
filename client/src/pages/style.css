@@ -4,11 +4,12 @@
       border: double 6px;
       padding: 20px;
       width: 75%;
-      height: 320px;
+      height: 350px;
       border-radius: 25px;
       background-color: #0d1852;
       color: white;
       margin-left: 10%;
+      margin-top: 20px;
     }
     
     .quantityprice {
@@ -16,11 +17,12 @@
       border: double 6px;
       padding: 20px;
       width: 75%;
-      height: 400px;
+      height: 510px;
       border-radius: 25px;
       background-color: #0d1852;
       color: white;
       margin-left: 10%;
+      margin-top: 20px;
     }
     
     .addnew{
@@ -28,11 +30,12 @@
       border: double 6px;
       padding: 20px;
       width: 75%;
-      height: 600px;
+      height: 800px;
       border-radius: 25px;
       background-color: #0d1852;
       color: white;
       margin-left: 10%;
+      margin-top: 20px;
     }
 
     body{
@@ -65,7 +68,7 @@
            border-color:  #0d1852;
            border: double 6px;
            padding: 20px;
-           height: 1030px;
+           height: 1070px;
            border-radius: 25px;
            background-color: #0d1852;
            color: white;
@@ -241,6 +244,8 @@
          font-family: 'Righteous', cursive;
          font-size: 24px;
          white-space: normal;
+         margin-right: 20px;
+         margin-bottom: 20px;
        }
        
        .signUp{
