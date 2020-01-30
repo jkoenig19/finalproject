@@ -27,10 +27,28 @@ class SignupCustomer extends Component {
         API.getCustomers()
             .then(res => {
                 const allUsers = res.data;
-                const usernameDuplicate = allUsers.filter(user => user.username === this.state.username)
+                const usernameDuplicate = allUsers.filter(user => user.username === this.state.username);
+                const userBakeryCreated = allUsers.filter(user => user.phone === this.state.phone);
                 if (usernameDuplicate.length !== 0){
                     this.setState({message: "Username already taken, please try again!"})
                     this.setState({username: ""});
+                }
+                else if (userBakeryCreated.length !== 0){
+                    API.updateCustomer(userBakeryCreated[0]._id,
+                        {
+                            username: this.state.username,
+                            password: this.state.password,
+                            name: this.state.name,
+                            email: this.state.email,
+                            location: this.state.location
+                    })
+                    .catch(err => console.log(err));
+                    const user_variable = this.state.username;
+                    sessionStorage.clear();
+                    sessionStorage.setItem("username", user_variable)
+                    sessionStorage.setItem("registered", "customer")
+                    this.setState({message: "Registation completed!"})
+                    window.location.replace("/customer")
                 }
                 else {
                     API.saveCustomer({
@@ -47,8 +65,8 @@ class SignupCustomer extends Component {
                     sessionStorage.setItem("username", user_variable)
                     sessionStorage.setItem("registered", "customer")
                     this.setState({message: "Success!"})
-                    window.location.replace("/customer")
-                }
+                   window.location.replace("/customer")
+               }
             })
             .catch(err => console.log(err));
     }
@@ -85,6 +103,7 @@ class SignupCustomer extends Component {
                     onChange={this.handleInputChange}
                     name="password"
                     placeholder="password"
+                    type="password"
                 />
                 <Input
                     value={this.state.name}

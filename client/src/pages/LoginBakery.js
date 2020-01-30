@@ -48,7 +48,7 @@ class LoginBakery extends Component {
             <div>  
                                             <div className="top">
       <nav class="navbar navbar-expand-lg">
-      <i className="material-icons">cake</i>  <a class="navbar-brand" href="#">Bakery Link</a>
+      <i className="material-icons">cake</i>  <a class="navbar-brand" href="/">Bakery Link</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -75,6 +75,7 @@ class LoginBakery extends Component {
                     onChange={this.handleInputChange}
                     name="password"
                     placeholder="password"
+                    type="password"
                 />
                 <FormBtn
                     onClick={this.handleBakeryReturnSubmit}

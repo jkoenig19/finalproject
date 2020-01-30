@@ -75,6 +75,7 @@ class LoginCustomer extends Component {
                     onChange={this.handleInputChange}
                     name="password"
                     placeholder="password"
+                    type="password"
                 />
                 <FormBtn
                     onClick={this.handleCustomerReturnSubmit}

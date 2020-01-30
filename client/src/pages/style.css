@@ -1,8 +1,7 @@
 body{
   
  background-image: url("../images/marble-surface-2341290.jpg");
- background-repeat: no-repeat;
- background-size: auto;
+ background-size: 100%;
  margin-bottom: 150px;
 
   }
@@ -30,8 +29,7 @@ margin-top: 30px;
     border-color:  #0d1852;
     border: double 6px;
     padding: 20px;
-    width: 600px;
-    height: 950px;
+    height: 1030px;
    
     border-radius: 25px;
     background-color: #0d1852;
@@ -47,6 +45,18 @@ a{
   color:white;
    font-family: 'Righteous', cursive;
   text-align: right;
+}
+
+a:hover{
+  background-color: grey;
+  border-radius: 10px;
+}
+
+.navbar-nav > a{
+  color: white;  
+}
+.navbar > a{
+  color: white;
 }
 
 i{
@@ -72,17 +82,23 @@ margin: auto;
 
 }
 
+.registeredTop{
+  text-align: center;
+}
+
 .carousel-wrapper{
-  width: 40%;
-  float:right;
+  margin-left: 0px;
+  margin-right: 40px;
 }
 
 .map{
-
   border:solid 6px;
   border-color: #0d1852;
-  width:40%;
-  float:right;
+  background-color: white;
+}
+
+.mapText{
+  text-align: center;
 }
 
 p{
@@ -90,6 +106,57 @@ p{
   color: #0d1852;
   font-size:24px;
 }
+
+.textOrderForm{
+  color: white;
+}
+
 .button{
   background-color: white;
+}
+
+.ordersTable{
+  border: 1px solid #0d1852;
+}
+
+.inventoryPlots{
+  margin-top: 30px;
+  border: 1px solid #0d1852;
+}
+
+.orderStatusUpdate{
+  margin-top: 30px;
+  width: 40%;
+  display: inline-block;
+  background-color: white;
+  border: 1px solid #0d1852;
+  padding: 16px;
+}
+
+.orderDelete{
+  margin-top: 30px;
+  display: inline-block;
+  width: 40%;
+  margin-left: 0px;
+  background-color: white;
+  border: 1px solid #0d1852;
+  padding: 16px;
+}
+
+.ordersList{
+  margin-top: 30px;
+  border-radius: 4px;
+  background-color: #0d1852;
+  padding: 16px;
+}
+
+.textListItem{
+  font-size: 20px;
+  line-height: 16px;
+}
+
+.welcome {
+  font-size: 32px;
+  margin-bottom: 0px;
+  font-weight: bold;
 }

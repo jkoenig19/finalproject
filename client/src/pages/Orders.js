@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Plot from 'react-plotly.js';
 import moment from 'moment';
-import { Input, FormBtn } from "../components/Form";
+import { Input, FormBtn, DeleteBtn } from "../components/Form";
 import { List, ListItem } from "../components/List";
 import API from "../utils/API";
 import './style.css';
@@ -17,8 +17,8 @@ class Orders extends Component {
                        ["<b>Customer</b>"], ["<b>Status</b>"]],
             align: ["left", "center"],
             line: {width: 1, color: '#506784'},
-            fill: {color: '#119DFF'},
-            font: {family: "Arial", size: 12, color: "white"}
+            fill: {color: '#0d1852'},
+            font: {family: "Arial", size: 16, color: "white"}
             },
             cells: {
             values: [[""],
@@ -28,7 +28,7 @@ class Orders extends Component {
             align: ["left", "center"],
             line: {color: "#506784", width: 1},
             fill: {color: ['#25FEFD', 'white']},
-            font: {family: "Arial", size: 11, color: ["#506784"]}
+            font: {family: "Arial", size: 14, color: ["#506784"]}
             }
         }],
         currentBakeryOrders: [],
@@ -127,6 +127,12 @@ class Orders extends Component {
         })
     }
 
+    handleLogOut = event => {
+        event.preventDefault();
+        sessionStorage.clear();
+        window.location.replace("/")
+      }
+
     render() {
         const authorization = sessionStorage.getItem("registered");
         if (authorization !== "bakery"){
@@ -145,12 +151,13 @@ class Orders extends Component {
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Bakery Log In</a>
+      <a class="nav-item nav-link" onClick={this.handleLogOut}>Log Out</a>
     </div>
   </div>
 </nav>
 </div>         
             <div className="container-fluid">
-                <div style = {{width: "100%", height: "300px"}}>
+                <div className="ordersTable" style = {{width: "100%", height: "300px", marginTop: "30px"}}>
                     <Plot 
                     data={this.state.data}
                     style = {{width: "100%", height: "100%"}}
@@ -159,7 +166,9 @@ class Orders extends Component {
                     useResizeHandler
                     />
                 </div>
-                <form>
+                <div className="d-flex justify-content-around">
+                <form className="orderStatusUpdate">
+                    <p>Status Updates</p>
                     <Input
                         value={this.state.bakeryOrderNumber}
                         onChange={this.handleInputChange}
@@ -178,36 +187,45 @@ class Orders extends Component {
                         Update Status
                     </FormBtn>
                 </form>
-                <form>
+                <form className="orderDelete">
+                    <p>Delete an Order</p>
                     <Input
                         value={this.state.deleteOrderNumber}
                         onChange={this.handleInputChange}
                         name="deleteOrderNumber"
                         placeholder="Order number"
                     />
-                    <FormBtn
+                    <DeleteBtn
                         onClick={this.handleDeleteSubmit}
                     >
                         Delete Order
-                    </FormBtn>
+                    </DeleteBtn>
                 </form>
-            <List>
-                {this.state.currentBakeryOrders.map(order => (
-                    <ListItem key={order._id}>
-                        <p>Date of Pickup: {order.dueDate ? order.dueDate : "N/A"}</p>
-                        <p>Order ID: {order.bakeryOrderID ? order.bakeryOrderID : "N/A"}</p>
-                        <p>Cake size: {order.size ? order.size : "N/A"}</p>
-                        <p>Cake flavor: {order.flavor ? order.flavor : "N/A"}</p>
-                        <p>Buttercream inside: {order.buttercreamInside ? order.buttercreamInside : "N/A"}</p>
-                        <p>Buttercream outside: {order.buttercreamOutside ? order.buttercreamOutside : "N/A"}</p>
-                        <p>Writing: {order.writing ? order.writing : "N/A"}</p>
-                        <p>Decorations: {order.decorations ? order.decorations : "N/A"}</p>
-                        <p>Order submitted by: {order.orderSubmittedBy ? order.orderSubmittedBy : "N/A"}</p>
-                        <p>Cookies quantity: {order.cookiesQuantity ? order.cookiesQuantity : "N/A"}</p>
-                        <p>Cupcakes quantity: {order.cupcakesQuantity ? order.cupcakesQuantity : "N/A"}</p>
-                    </ListItem>
-                ))}
-            </List>
+                </div>
+            <div className="ordersList">
+                <p className="textOrderForm">List of Orders</p>
+                {this.state.currentBakeryOrders.length ? (
+                <List>
+                    {this.state.currentBakeryOrders.map(order => (
+                        <ListItem key={order._id}>
+                            <p className="textListItem">Date of Pickup: {order.dueDate ? order.dueDate : "N/A"}</p>
+                            <p className="textListItem">Order ID: {order.bakeryOrderID ? order.bakeryOrderID : "N/A"}</p>
+                            <p className="textListItem">Cake size: {order.size ? order.size : "N/A"}</p>
+                            <p className="textListItem">Cake flavor: {order.flavor ? order.flavor : "N/A"}</p>
+                            <p className="textListItem">Buttercream inside: {order.buttercreamInside ? order.buttercreamInside : "N/A"}</p>
+                            <p className="textListItem">Buttercream outside: {order.buttercreamOutside ? order.buttercreamOutside : "N/A"}</p>
+                            <p className="textListItem">Writing: {order.writing ? order.writing : "N/A"}</p>
+                            <p className="textListItem">Decorations: {order.decorations ? order.decorations : "N/A"}</p>
+                            <p className="textListItem">Order submitted by: {order.orderSubmittedBy ? order.orderSubmittedBy : "N/A"}</p>
+                            <p className="textListItem">Cookies quantity: {order.cookiesQuantity ? order.cookiesQuantity : "N/A"}</p>
+                            <p className="textListItem">Cupcakes quantity: {order.cupcakesQuantity ? order.cupcakesQuantity : "N/A"}</p>
+                        </ListItem>
+                    ))}
+                </List>
+                ) : (
+                    <p className="text-secondary">No saved orders to display</p>
+                )}
+                </div>
             </div>
             <Footer></Footer>
             </div>

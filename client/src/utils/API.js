@@ -27,6 +27,9 @@ export default {
   saveCustomer: function(customerData) {
     return axios.post("/api/customers", customerData);
   },
+  updateCustomer: function(id, customerData) {
+    return axios.put("/api/customers/" + id, customerData);
+  },
 //Inventory
   getInventories: function() {
     return axios.get("/api/inventories");

@@ -1,7 +1,7 @@
 import React , { Component } from "react";
 import Footer from "../components/Footer";
 import './style.css';
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, TextArea, FormBtn, GoBackBtn } from "../components/Form";
 import API from "../utils/API";
 
 
@@ -21,7 +21,7 @@ class Bakery extends Component {
     valueInside: "",
     subtotal: false,
     inputForm: false,
-    customer: "",
+    customer: [],
     employee: "",
     registeredCustomer: true,
     newName: "",
@@ -126,14 +126,19 @@ class Bakery extends Component {
       name: this.state.newName,
       phone: this.state.customerPhone
     })
-    .then(
-      this.setState({customerName: this.state.newName})
-    )
-    .then(
-      this.setState({registeredCustomer: true})
+    .then(res => {
+        const newCustomer = res.data;
+        this.setState({customer: newCustomer})
+        this.setState({customerName: this.state.newName, registeredCustomer: true})
+      }
     )
     .catch(err => console.log(err));
+  }
 
+  handleLogOut = event => {
+    event.preventDefault();
+    sessionStorage.clear();
+    window.location.replace("/")
   }
 
 
@@ -156,13 +161,18 @@ class Bakery extends Component {
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#">Customer Log In <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Bakery Log In</a>
+      <a class="nav-item nav-link" onClick={this.handleLogOut}>Log Out</a>
     </div>
   </div>
 </nav>
 </div>
             <div className="container-fluid">
-             <p>{this.state.bakery.name} Page</p>
-             <p>Create a bakery order below, or go to the Orders page for orders, or the Inventory page for inventory.</p>
+              <div className="row">
+                <div className="col-md-12 registeredTop">
+                <p className="welcome">{this.state.bakery.name} Page</p>
+                <p>Create a bakery order below, or go to the Orders page for orders, or the Inventory page for inventory.</p>
+                </div>
+              </div>
 
              <div className="order">
              <h1>Create Order</h1>
@@ -176,24 +186,23 @@ class Bakery extends Component {
                  name="customerPhone"
                  placeholder="Customer Phone Number"
                />
-               <br></br>
                <Input
                  value={this.state.dateOfPickup}
                  onChange={this.handleInputChange}
                  name="dateOfPickup"
                  placeholder="Date of Pickup"
                />
-               <p>Cake Flavor</p>
+               <p className="textOrderForm">Cake Flavor</p>
                <select className="form-control" name="valueFlavor" onChange ={this.handleInputChange} value={this.state.valueFlavor}>
-                   <option>- Select flavor -</option>
+                   <option value="" disabled selected>- Select flavor -</option>
                    <option value ="Vanilla">Vanilla</option>
                    <option value ="Chocolate">Chocolate</option>
                    <option value ="Carrot">Carrot</option>
                    <option value ="Red Velvet">Red Velvet</option>
                </select>
-               <p>Cake Size</p>
+               <p className="textOrderForm">Cake Size</p>
                <select className="form-control" name="valueSize" onChange ={this.handleInputChange} value={this.state.valueSize}>
-                   <option>- Select size -</option>
+                   <option value="" disabled selected>- Select size -</option>
                    <option value ="6 inch">6 inch</option>
                    <option value ="9 inch">9 inch</option>
                    <option value ="12 inch">12 inch</option>
@@ -201,9 +210,9 @@ class Bakery extends Component {
                    <option value ="1/4 Sheet">1/4 Sheet</option>
                    <option value ="1/2 Sheet">1/2 Sheet</option>
                </select>
-               <p>Buttercream Outside</p>
+               <p className="textOrderForm">Buttercream Outside</p>
                <select className="form-control" name="valueOutside" onChange ={this.handleInputChange} value={this.state.valueOutside}>
-                   <option>- Select buttercream outside -</option>
+                   <option value="" disabled selected>- Select buttercream outside -</option>
                    <option value ="Vanilla">Vanilla</option>
                    <option value ="Almond">Almond</option>
                    <option value ="Blackberry">Blackberry</option>
@@ -218,9 +227,9 @@ class Bakery extends Component {
                    <option value ="Cream Cheese">Cream Cheese</option>
                    <option value ="Ganache">Ganache</option>
                </select>
-               <p>Buttercream Inside</p>
+               <p className="textOrderForm">Buttercream Inside</p>
                <select className="form-control" name="valueInside" onChange ={this.handleInputChange} value={this.state.valueInside}>
-                   <option>- Select buttercream inside -</option>
+                   <option value="" disabled selected>- Select buttercream inside -</option>
                    <option value ="Vanilla">Vanilla</option>
                    <option value ="Almond">Almond</option>
                    <option value ="Blackberry">Blackberry</option>
@@ -276,7 +285,7 @@ class Bakery extends Component {
                <div>
                  {!this.state.registeredCustomer ? (
                   <div>
-                  <p>Enter name for unregistered customer</p>
+                  <p className="textOrderForm">Enter name for unregistered customer</p>
                   <Input
                   value={this.state.newName}
                   onChange={this.handleInputChange}
@@ -291,34 +300,34 @@ class Bakery extends Component {
                   </div>
                   ) : (
                     <div>
-                    <p>Order Details</p>
-                    <p>Customer: {this.state.customerName ? this.state.customerName : "No selection"}</p>
-                    <p>Date of Pickup: {this.state.dateOfPickup ? this.state.dateOfPickup : "No date entered"}</p>
-                    <p>Cake Flavor: {this.state.valueFlavor ? this.state.valueFlavor : "No selection"}</p>
-                    <p>Cake Size: {this.state.valueSize ? this.state.valueSize : "No selection"}</p>
-                    <p>Buttercream Outside: {this.state.valueOutside ? this.state.valueOutside : "No selection"}</p>
-                    <p>Buttercream Inside: {this.state.valueInside ? this.state.valueInside: "No selection"}</p>
-                    <p>Writing On Cake: {this.state.writingOnCake ? this.state.writingOnCake : "No writing entered"}</p>
-                    <p>Decoration(s): {this.state.decorations ? this.state.decorations : "No decorations entered"}</p>
-                    <p>Cookie Quantity: {this.state.cookieQuantity ? this.state.cookieQuantity : "No quantity entered"}</p>
-                    <p>Cupcake Quantity: {this.state.cupcakeQuantity ? this.state.cupcakeQuantity : "No quantity entered"}</p>
-                    <p>Order Entered By: {this.state.employee ? this.state.employee : "No name entered"}</p>
+                    <p className="textOrderForm">Order Details</p>
+                    <p className="textOrderForm">Customer: {this.state.customerName ? this.state.customerName : "No selection"}</p>
+                    <p className="textOrderForm">Date of Pickup: {this.state.dateOfPickup ? this.state.dateOfPickup : "No date entered"}</p>
+                    <p className="textOrderForm">Cake Flavor: {this.state.valueFlavor ? this.state.valueFlavor : "No selection"}</p>
+                    <p className="textOrderForm">Cake Size: {this.state.valueSize ? this.state.valueSize : "No selection"}</p>
+                    <p className="textOrderForm">Buttercream Outside: {this.state.valueOutside ? this.state.valueOutside : "No selection"}</p>
+                    <p className="textOrderForm">Buttercream Inside: {this.state.valueInside ? this.state.valueInside: "No selection"}</p>
+                    <p className="textOrderForm">Writing On Cake: {this.state.writingOnCake ? this.state.writingOnCake : "No writing entered"}</p>
+                    <p className="textOrderForm">Decoration(s): {this.state.decorations ? this.state.decorations : "No decorations entered"}</p>
+                    <p className="textOrderForm">Cookie Quantity: {this.state.cookieQuantity ? this.state.cookieQuantity : "No quantity entered"}</p>
+                    <p className="textOrderForm">Cupcake Quantity: {this.state.cupcakeQuantity ? this.state.cupcakeQuantity : "No quantity entered"}</p>
+                    <p className="textOrderForm">Order Entered By: {this.state.employee ? this.state.employee : "No name entered"}</p>
                     <FormBtn
                       onClick={this.handleFormSubmit}
                     >
                       Submit Order
                     </FormBtn>
-                    <FormBtn
+                    <GoBackBtn
                       onClick={this.handleRestartSubmit}
                     >
                       Change Order Details
-                    </FormBtn>
+                    </GoBackBtn>
                     </div>
                     )}
                     </div>
              )) : (
                <div>
-                 <p>Order submitted! Select new order to create another order.</p>
+                 <p className="textOrderForm">Order submitted! Select new order to create another order.</p>
                <FormBtn
                  onClick={this.handleNewSubmit}
                >

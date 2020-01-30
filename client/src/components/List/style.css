@@ -1,5 +1,5 @@
 .list-overflow-container {
-    max-height: 545px;
+    max-height: 595px;
     border: 1px #DDDDDD solid;
     border-radius: 4px;
     overflow-y: scroll;
@@ -16,14 +16,20 @@
   }
   
   .list-overflow-container li * {
-    cursor: pointer;
+    cursor: all-scroll;
   }
   
   .list-overflow-container li:first-child {
     border-top: none;
+    padding-top: 16px;
   }
   
   .list-overflow-container li:last-child {
     border-bottom: none;
   }
-  
+
+  .listItem{
+    padding-left: 16px;
+    border-bottom: 5px #DDDDDD solid;
+    background-color: white;
+  }
