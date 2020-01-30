@@ -19,7 +19,7 @@ class Home extends Component {
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav ml-auto">
                 <a className="nav-item nav-link active" href="/login-customer">Customer Log In <span class="sr-only">(current)</span></a>
                 <a className="nav-item nav-link active" href="/login-bakery">Bakery Log In</a>
