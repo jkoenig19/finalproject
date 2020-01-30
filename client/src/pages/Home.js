@@ -31,8 +31,8 @@ class Home extends Component {
           </nav>
         </div>
         <Jumbotron>
-          <h1 className="display-4">Bakery Link</h1>
-          <h2 className="lead">Making Bakery Orders A Piece Of Cake!</h2>
+          <h1>Bakery Link</h1>
+          <h2>Making Bakery Orders A Piece Of Cake!</h2>
         </Jumbotron>
       <div className="signUp">
         <button className= "bttnOne" className="btn btn-primary" type="submit">New Customer Sign Up (Click Here)</button>    <button className="bttnTwo" className="btn btn-primary" type="submit">New Bakery Sign Up (Click Here)</button>
