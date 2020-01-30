@@ -187,19 +187,19 @@ class Customer extends Component {
   <div className="carousel-wrapper">
             <Carousel infiniteLoop autoPlay showThumbs="false">
                 <div>
-                    <img src={require("../images/photo1.jpg")} />
+                    <img src={require("../images/photo1.jpg")} alt="photo1"/>
                 </div>
                 <div>
-                    <img src={require("../images/photo2.jpg")} />
+                    <img src={require("../images/photo2.jpg")} alt="photo2"/>
                 </div>
                 <div>
-                    <img src={require("../images/photo3.jpg")} />
+                    <img src={require("../images/photo3.jpg")}alt="photo3" />
                 </div>
                 <div>
-                    <img src={require("../images/piece-of-cake-with-berries-on-top-1639564.jpg")} />
+                    <img src={require("../images/piece-of-cake-with-berries-on-top-1639564.jpg")} alt="photo4"/>
                 </div>
                 <div>
-                    <img src={require("../images/photo5.jpg")} />
+                    <img src={require("../images/photo5.jpg" )} alt="photo5"/>
                 </div>
                
             </Carousel>
@@ -229,7 +229,7 @@ class Customer extends Component {
                  name="dateOfPickup"
                  placeholder="Date of Pickup"
                />
-               <p>Cake Flavor</p>
+               <p class="orderForm">Cake Flavor:</p>
                <select className="form-control" name="valueFlavor" onChange ={this.handleInputChange} value={this.state.valueFlavor}>
                    <option>- Select flavor -</option>
                    <option value ="Vanilla">Vanilla</option>
@@ -237,7 +237,8 @@ class Customer extends Component {
                    <option value ="Carrot">Carrot</option>
                    <option value ="Red Velvet">Red Velvet</option>
                </select>
-               <p>Cake Size</p>
+               <br></br>
+               <p class="orderForm">Cake Size:</p>
                <select className="form-control" name="valueSize" onChange ={this.handleInputChange} value={this.state.valueSize}>
                    <option>- Select size -</option>
                    <option value ="6 inch">6 inch</option>
@@ -247,7 +248,8 @@ class Customer extends Component {
                    <option value ="1/4 Sheet">1/4 Sheet</option>
                    <option value ="1/2 Sheet">1/2 Sheet</option>
                </select>
-               <p>Buttercream Outside</p>
+               <br></br>
+               <p class="orderForm">Buttercream Outside:</p>
                <select className="form-control" name="valueOutside" onChange ={this.handleInputChange} value={this.state.valueOutside}>
                    <option>- Select buttercream outside -</option>
                    <option value ="Vanilla">Vanilla</option>
@@ -264,7 +266,8 @@ class Customer extends Component {
                    <option value ="Cream Cheese">Cream Cheese</option>
                    <option value ="Ganache">Ganache</option>
                </select>
-               <p>Buttercream Inside</p>
+               <br></br>
+               <p class="orderForm">Buttercream Inside:</p>
                <select className="form-control" name="valueInside" onChange ={this.handleInputChange} value={this.state.valueInside}>
                    <option>- Select buttercream inside -</option>
                    <option value ="Vanilla">Vanilla</option>
@@ -314,22 +317,23 @@ class Customer extends Component {
                </form>
              ) : (
                <div>
-                 <p>Order Details</p>
-                 <p>Bakery Selection: {this.state.selectedBakery ? this.state.selectedBakery : "No selection"}</p>
-                 <p>Date of Pickup: {this.state.dateOfPickup ? this.state.dateOfPickup : "No date entered"}</p>
-                 <p>Cake Flavor: {this.state.valueFlavor ? this.state.valueFlavor : "No selection"}</p>
-                 <p>Cake Size: {this.state.valueSize ? this.state.valueSize : "No selection"}</p>
-                 <p>Buttercream Outside: {this.state.valueOutside ? this.state.valueOutside : "No selection"}</p>
-                 <p>Buttercream Inside: {this.state.valueInside ? this.state.valueInside: "No selection"}</p>
-                 <p>Writing On Cake: {this.state.writingOnCake ? this.state.writingOnCake : "No writing entered"}</p>
-                 <p>Decoration(s): {this.state.decorations ? this.state.decorations : "No decorations entered"}</p>
-                 <p>Cookie Quantity: {this.state.cookieQuantity ? this.state.cookieQuantity : "No quantity entered"}</p>
-                 <p>Cupcake Quantity: {this.state.cupcakeQuantity ? this.state.cupcakeQuantity : "No quantity entered"}</p>
+                 <p class="signUpP">Order Details</p>
+                 <p class="signUpP">Bakery Selection: {this.state.selectedBakery ? this.state.selectedBakery : "No selection"}</p>
+                 <p class="signUpP">Date of Pickup: {this.state.dateOfPickup ? this.state.dateOfPickup : "No date entered"}</p>
+                 <p class="signUpP">Cake Flavor: {this.state.valueFlavor ? this.state.valueFlavor : "No selection"}</p>
+                 <p class="signUpP">Cake Size: {this.state.valueSize ? this.state.valueSize : "No selection"}</p>
+                 <p class="signUpP">Buttercream Outside: {this.state.valueOutside ? this.state.valueOutside : "No selection"}</p>
+                 <p class="signUpP">Buttercream Inside: {this.state.valueInside ? this.state.valueInside: "No selection"}</p>
+                 <p class="signUpP">Writing On Cake: {this.state.writingOnCake ? this.state.writingOnCake : "No writing entered"}</p>
+                 <p class="signUpP">Decoration(s): {this.state.decorations ? this.state.decorations : "No decorations entered"}</p>
+                 <p class="signUpP">Cookie Quantity: {this.state.cookieQuantity ? this.state.cookieQuantity : "No quantity entered"}</p>
+                 <p class="signUpP">Cupcake Quantity: {this.state.cupcakeQuantity ? this.state.cupcakeQuantity : "No quantity entered"}</p>
                <FormBtn
                  onClick={this.handleFormSubmit}
                >
                  Submit Order
                </FormBtn>
+               
                <FormBtn
                  onClick={this.handleRestartSubmit}
                >

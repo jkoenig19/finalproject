@@ -35,7 +35,7 @@ class Home extends Component {
           <h2 className="lead">Making Bakery Orders A Piece Of Cake!</h2>
         </Jumbotron>
       <div className="signUp">
-        <button className= "bttnOne" className="btn btn-primary" type="submit">New Customer Sign Up</button>    <button className="bttnTwo" className="btn btn-primary" type="submit">New Bakery Sign Up</button>
+        <button className= "bttnOne" className="btn btn-primary" type="submit">New Customer Sign Up (Click Here)</button>    <button className="bttnTwo" className="btn btn-primary" type="submit">New Bakery Sign Up (Click Here)</button>
 </div>
 <div className="text">
         <div className="customer">

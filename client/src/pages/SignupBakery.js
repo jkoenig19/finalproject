@@ -69,9 +69,11 @@ class SignupBakery extends Component {
 </nav>
 </div> 
         <div className="container-fluid">
-            <p>Message: {this.state.message ? this.state.message : "None"}</p>
+        <div className="signup1">
+            <p class="signUpP">Message: {this.state.message ? this.state.message : "None"}</p>
             <form>
-                <p>Bakery sign up</p>
+                <div className="bakerSignup"></div>
+                <p class="signUpP">Bakery sign up</p>
                 <Input
                     value={this.state.username}
                     onChange={this.handleInputChange}
@@ -102,6 +104,13 @@ class SignupBakery extends Component {
                     Submit
                 </FormBtn>
             </form>
+            <br></br>
+            <br></br>
+            </div>
+            <div className="images">
+            <img className="loginPic"src={require("../images/white-round-cake-topped-with-yellow-slice-fruit-140831.jpg")} alt="yellowslice"/>            <img className="loginPic2"src={require("../images/baked-pastries-2872882.jpg")} alt="pastries"/>            <img className="loginPic3"src={require("../images/close-up-photo-of-brownies-3026804.jpg")}alt="brownie"/>
+         
+            </div>
             </div>
             <Footer></Footer>
             </div>
