@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
-import { Link } from 'react-router-dom';
 import './style.css';
 
 
@@ -21,9 +20,9 @@ class Home extends Component {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div className="navbar-nav">
-                <a className="nav-item nav-link active"><Link to="/login-customer">Customer Log In <span class="sr-only">(current)</span></Link></a>
-                <a className="nav-item nav-link active"><Link to="/login-bakery">Bakery Log In</Link></a>
+              <div className="navbar-nav ml-auto">
+                <a className="nav-item nav-link active" href="/login-customer">Customer Log In <span class="sr-only">(current)</span></a>
+                <a className="nav-item nav-link active" href="/login-bakery">Bakery Log In</a>
               </div>
             </div>
           </nav>

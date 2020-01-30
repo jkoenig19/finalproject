@@ -2,7 +2,7 @@ import React , { Component } from "react";
 import Footer from "../components/Footer";
 import './style.css';
 import { Input, TextArea, FormBtn, GoBackBtn } from "../components/Form";
-import { Link } from 'react-router-dom';
+
 import API from "../utils/API";
 
 
@@ -153,15 +153,16 @@ class Bakery extends Component {
         
         <div className="bg">
           <div className="top">
-            <nav class="navbar navbar-expand-lg">
-              <i className="material-icons">cake</i> <a class="navbar-brand"><Link to="/">Bakery Link</Link></a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg">
+              <i className="material-icons">cake</i> <a class="navbar-brand" href="/">Bakery Link</a>
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-item nav-link active"><Link to="/login-customer">Customer Log In <span class="sr-only">(current)</span></Link></a>
-                  <a class="nav-item nav-link"><Link to="/login-bakery">Bakery Log In</Link></a>
+              <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav ml-auto">
+                <a className="nav-item nav-link active" href="/orders">Orders<span class="sr-only">(current)</span></a>
+                <a className="nav-item nav-link active" href="/inventory">Inventory</a>
+                <a className="nav-link" onClick={this.handleLogOut}>Log Out</a>
                 </div>
               </div>
             </nav>

@@ -94,11 +94,14 @@
        
        .navbar-nav > a{
          color: white;  
+         
        }
        .navbar > a{
          color: white;
        }
        
+
+
        i{
          margin-right: 3px;
        }
