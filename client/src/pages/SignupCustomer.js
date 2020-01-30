@@ -71,9 +71,10 @@ class SignupCustomer extends Component {
 </nav>
 </div> 
         <div className="container-fluid">
-            <p>Message: {this.state.message ? this.state.message : "None"}</p>
-            <form>
-                <p>Customer sign up</p>
+        <form className="customerSignup">
+            <p class="signUpP">Message: {this.state.message ? this.state.message : "None"}</p>
+            
+                <p class="signUpP">Customer sign up</p>
                 <Input
                     value={this.state.username}
                     onChange={this.handleInputChange}
@@ -116,6 +117,10 @@ class SignupCustomer extends Component {
                     Submit
                 </FormBtn>
             </form>
+            <div className="images">
+            <img className="loginPic"src={require("../images/white-round-cake-topped-with-yellow-slice-fruit-140831.jpg")} alt="yellow slice"/>            <img className="loginPic2"src={require("../images/baked-pastries-2872882.jpg")} alt="pastries"/>            <img className= "loginPic3" src={require("../images/close-up-photo-of-brownies-3026804.jpg")} alt="brownies"/>
+         
+            </div>
             </div>
             <Footer></Footer>
             </div>

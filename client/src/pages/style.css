@@ -31,7 +31,7 @@ margin-top: 30px;
     border: double 6px;
     padding: 20px;
     width: 600px;
-    height: 950px;
+    height: 975px;
     border-radius: 25px;
     background-color: #0d1852;
     color: white;
@@ -76,7 +76,7 @@ margin: auto;
 .carousel-wrapper{
   width: 40%;
   float:right;
-  padding-top: 110px;
+  padding-top: 150px;
   margin-right:40px;
 }
 
@@ -121,7 +121,7 @@ font-size: 32px;
   width:65%;
   margin: auto;
   margin-bottom:50px;
-  margin-top:30px;
+  margin-top:20px;
   
 }
 
@@ -138,14 +138,13 @@ hr{
   border-width: 6px;
   font-family: 'Righteous', cursive;
   font-size: 24px;
- 
-
+  white-space: normal;
 }
 
 .signUp{
   padding-top: 30px;
-  align-content: center;
-  padding-bottom: 80px;
+  text-align: center;
+  padding-bottom: 10px;
 }
 
 .orderButton{
@@ -157,19 +156,91 @@ hr{
   border: double 6px;
   padding: 20px;
   width: 1000px;
-  height: 1030px;
+  height: 1050px;
   border-radius: 25px;
   background-color: #0d1852;
   color: white;
   margin:auto;
   margin-top:40px;
+}
+
+.signup1{
+  height: 405px;
+  width:50%;
+  margin:auto;
+  border: solid double  #0d1852;
+  border-radius: 25px;
+  padding:25px;
+  margin-top:30px;
+  background-color: #0d1852
+  
+}
+.signUpP{
+  color: white;
+}
+
+.loginPic{
+  height:180px;
+  width:200px;
+  float: left;
+}
+.loginPic2{
+  height:180px;
+  width:200px;
+ 
+}
+.loginPic3{
+  height:180px;
+  width:200px;
+  float: right;
+  
+}
+
+.images{
+  text-align: center;
+  padding-top: 30px;
+}
+.customerSignup{
+  height: 515px;
+  width:50%;
+  margin:auto;
+  border: solid double  #0d1852;
+  border-radius: 25px;
+  padding:25px;
+  margin-top:30px;
+  background-color: #0d1852
 
 }
 
-.signUp{
- text-align: center;
+.bakeryLogin{
+  height: 300px;
+  width:50%;
+  margin:auto;
+  border: solid double  #0d1852;
+  border-radius: 25px;
+  padding:25px;
+  margin-top:30px;
+  background-color: #0d1852
+
 }
 
-.signUp:hover{
-color:blue
+.customerLogin{
+  height: 300px;
+  width:50%;
+  margin:auto;
+  border: solid double  #0d1852;
+  border-radius: 25px;
+  padding:25px;
+  margin-top:30px;
+  background-color: #0d1852
+
+}
+
+.orderForm{
+  color: white;
+  font-size: 18px;
+}
+
+a:hover{
+  background-color: blue
 }

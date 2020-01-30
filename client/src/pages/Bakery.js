@@ -183,7 +183,7 @@ class Bakery extends Component {
                     name="dateOfPickup"
                     placeholder="Date of Pickup"
                   />
-                  <p>Cake Flavor</p>
+                  <p class="orderForm">Cake Flavor</p>
                   <select className="form-control" name="valueFlavor" onChange={this.handleInputChange} value={this.state.valueFlavor}>
                     <option>- Select flavor -</option>
                     <option value="Vanilla">Vanilla</option>
@@ -191,7 +191,8 @@ class Bakery extends Component {
                     <option value="Carrot">Carrot</option>
                     <option value="Red Velvet">Red Velvet</option>
                   </select>
-                  <p>Cake Size</p>
+                  <br></br>
+                  <p class="orderForm">Cake Size</p>
                   <select className="form-control" name="valueSize" onChange={this.handleInputChange} value={this.state.valueSize}>
                     <option>- Select size -</option>
                     <option value="6 inch">6 inch</option>
@@ -201,7 +202,8 @@ class Bakery extends Component {
                     <option value="1/4 Sheet">1/4 Sheet</option>
                     <option value="1/2 Sheet">1/2 Sheet</option>
                   </select>
-                  <p>Buttercream Outside</p>
+                  <br></br>
+                  <p class="orderForm">Buttercream Outside</p>
                   <select className="form-control" name="valueOutside" onChange={this.handleInputChange} value={this.state.valueOutside}>
                     <option>- Select buttercream outside -</option>
                     <option value="Vanilla">Vanilla</option>
@@ -218,7 +220,8 @@ class Bakery extends Component {
                     <option value="Cream Cheese">Cream Cheese</option>
                     <option value="Ganache">Ganache</option>
                   </select>
-                  <p>Buttercream Inside</p>
+                  <br></br>
+                  <p class="orderForm">Buttercream Inside</p>
                   <select className="form-control" name="valueInside" onChange={this.handleInputChange} value={this.state.valueInside}>
                     <option>- Select buttercream inside -</option>
                     <option value="Vanilla">Vanilla</option>
